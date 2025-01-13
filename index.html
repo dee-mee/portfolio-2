@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Futuristic Portfolio</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+        <!-- Loading Overlay -->
+        <div class="loading-overlay">
+            <div class="loading-spinner"></div>
+        </div>
+    
+    <!-- Particle Background -->
+    <canvas id="particles"></canvas>
+
+    <!-- Top Navigation Bar -->
+    <div class="top-nav">
+        <div class="theme-switcher">
+            <div class="theme-btn blue" data-theme="default"></div>
+            <div class="theme-btn purple" data-theme="purple"></div>
+            <div class="theme-btn green" data-theme="green"></div>
+            <div class="theme-btn orange" data-theme="orange"></div>
+        </div>
+        <div class="social-links">
+            <a href="#" title="GitHub">GH</a>
+            <a href="#" title="LinkedIn">IN</a>
+            <a href="#" title="Twitter">TW</a>
+        </div>
+    </div>
+    <nav class="nav">
+        <div class="nav-content">
+            <div class="logo">Portfolio</div>
+            <div class="nav-links">
+                <a href="#home">Home</a>
+                <a href="#about">About</a>
+                <a href="#projects">Projects</a>
+                <a href="#contact">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <h1>Hi, I'm <span style="color: var(--neon-blue)">Derek</span></h1>
+            <p>Full Stack Developer & Python Programmer</p>
+            <a href="#contact" class="cta-button">Get In Touch</a>
+        </div>
+    </section>
+
+    <section class="section" id="about">
+        <h2 class="section-title">About Me</h2>
+        <div class="about">
+            <div class="about-image">
+                <img src="/api/placeholder/400/400" alt="Profile">
+            </div>
+            <div class="about-content">
+                <p>Hello! I'm a passionate web developer with 5 years of experience in creating modern, responsive websites and applications. I specialize in front-end development and love bringing creative designs to life.</p>
+                <br>
+                <p>My expertise includes:</p>
+                <br>
+                <ul>
+                    <li>React & Next.js</li>
+                    <li>Node.js & Express</li>
+                    <li>UI/UX Design</li>
+                    <li>Responsive Web Development</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <section class="section" id="projects">
+        <h2 class="section-title">My Projects</h2>
+        <div class="projects">
+            <div class="project-card">
+                <img src="/api/placeholder/400/300" alt="Project 1">
+                <h3>E-commerce Platform</h3>
+                <p>A full-stack e-commerce solution built with React and Node.js</p>
+            </div>
+            <div class="project-card">
+                <img src="/api/placeholder/400/300" alt="Project 2">
+                <h3>Portfolio Website</h3>
+                <p>A responsive portfolio website with modern animations</p>
+            </div>
+            <div class="project-card">
+                <img src="/api/placeholder/400/300" alt="Project 3">
+                <h3>Task Management App</h3>
+                <p>A collaborative task management application</p>
+            </div>
+        </div>
+    </section>
+    <section class="section" id="ongoing">
+        <h2 class="section-title">Ongoing Projects</h2>
+        <div class="ongoing-projects">
+            <div class="ongoing-project">
+                <h3>AI Chat Application</h3>
+                <p>Development Progress: 70%</p>
+                <div class="progress-bar"></div>
+            </div>
+            <div class="ongoing-project">
+                <h3>E-commerce Platform</h3>
+                <p>Development Progress: 45%</p>
+                <div class="progress-bar"></div>
+            </div>
+            <div class="ongoing-project">
+                <h3>Mobile Game</h3>
+                <p>Development Progress: 90%</p>
+                <div class="progress-bar"></div>
+            </div>
+        </div>
+    </section>
+
+        <!-- New Skills Section -->
+        <section class="section" id="skills">
+            <h2 class="section-title">Skills</h2>
+            <div class="skills">
+                <div class="skill-item floating">
+                    <div class="skill-level">
+                        <svg width="100" height="100">
+                            <circle cx="50" cy="50" r="45" stroke-dasharray="283" stroke-dashoffset="28.3"/>
+                        </svg>
+                    </div>
+                    <h3>Frontend</h3>
+                    <p>90%</p>
+                </div>
+                <div class="skill-item floating">
+                    <div class="skill-level">
+                        <svg width="100" height="100">
+                            <circle cx="50" cy="50" r="45" stroke-dasharray="283" stroke-dashoffset="28.3"/>
+                        </svg>
+                    </div>
+                    <h3>Backend</h3>
+                    <p>80%</p>
+                </div>
+                <!-- More skill items -->
+            </div>
+        </section>
+    
+        <!-- Modal -->
+        <div class="modal">
+            <div class="modal-content">
+                <span class="close-modal">×</span>
+                <h2>Project Details</h2>
+                <div class="modal-body"></div>
+            </div>
+        </div>
+
+
+        <section class="section" id="reviews">
+            <h2 class="section-title">Client Reviews</h2>
+            <div class="reviews">
+                <div class="review-card">
+                    <div class="stars">★★★★★</div>
+                    <p>"Exceptional work! Delivered the project ahead of schedule with outstanding quality."</p>
+                    <p><strong>- John Doe, CEO</strong></p>
+                </div>
+                <div class="review-card">
+                    <div class="stars">★★★★★</div>
+                    <p>"Innovative solutions and great communication throughout the project."</p>
+                    <p><strong>- Jane Smith, CTO</strong></p>
+                </div>
+                <div class="review-card">
+                    <div class="stars">★★★★★</div>
+                    <p>"Transformed our vision into reality. Highly recommended!"</p>
+                    <p><strong>- Mike Johnson, Founder</strong></p>
+                </div>
+            </div>
+        </section>
+
+
+    <section class="section" id="contact">
+        <h2 class="section-title">Get In Touch</h2>
+        <div class="contact-form">
+            <div class="form-group">
+                <label for="name">Name</label>
+                <input type="text" id="name" placeholder="Your Name">
+            </div>
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" id="email" placeholder="Your Email">
+            </div>
+            <div class="form-group">
+                <label for="message">Message</label>
+                <textarea id="message" rows="5" placeholder="Your Message"></textarea>
+            </div>
+            <button class="submit-btn">Send Message</button>
+        </div>
+    </section>
+
+    <script>
+                // Loading Animation
+                window.addEventListener('load', () => {
+                    const loader = document.querySelector('.loading-overlay');
+                    loader.style.opacity = '0';
+                    setTimeout(() => loader.style.display = 'none', 500);
+                });
+        
+                // Theme Switcher
+                document.querySelectorAll('.theme-btn').forEach(btn => {
+                    btn.addEventListener('click', () => {
+                        document.body.className = '';
+                        if (btn.dataset.theme !== 'default') {
+                            document.body.classList.add(`theme-${btn.dataset.theme}`);
+                        }
+                    });
+                });
+
+                        // Particle Background
+        const canvas = document.getElementById('particles');
+        const ctx = canvas.getContext('2d');
+        
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+
+        const particles = [];
+        
+        class Particle {
+            constructor() {
+                this.x = Math.random() * canvas.width;
+                this.y = Math.random() * canvas.height;
+                this.size = Math.random() * 2;
+                this.speedX = Math.random() * 3 - 1.5;
+                this.speedY = Math.random() * 3 - 1.5;
+            }
+
+            update() {
+                this.x += this.speedX;
+                this.y += this.speedY;
+
+                if (this.x > canvas.width) this.x = 0;
+                if (this.x < 0) this.x = canvas.width;
+                if (this.y > canvas.height) this.y = 0;
+                if (this.y < 0) this.y = canvas.height;
+            }
+
+            draw() {
+                ctx.fillStyle = getComputedStyle(document.body).getPropertyValue('--neon-blue');
+                ctx.beginPath();
+                ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+                ctx.fill();
+            }
+        }
+
+        function initParticles() {
+            for (let i = 0; i < 100; i++) {
+                particles.push(new Particle());
+            }
+        }
+
+        function animateParticles() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            
+            particles.forEach(particle => {
+                particle.update();
+                particle.draw();
+            });
+            
+            requestAnimationFrame(animateParticles);
+        }
+
+        initParticles();
+        animateParticles();
+
+        // Resize handler
+        window.addEventListener('resize', () => {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+        });
+
+        // Project Cards Flip
+        document.querySelectorAll('.project-card').forEach(card => {
+            card.addEventListener('click', () => {
+                card.classList.toggle('flipped');
+            });
+        });
+
+        // Modal Handler
+        const modal = document.querySelector('.modal');
+        const closeModal = document.querySelector('.close-modal');
+
+        closeModal.addEventListener('click', () => {
+            modal.style.display = 'none';
+        });
+
+        window.addEventListener('click', (e) => {
+            if (e.target === modal) {
+                modal.style.display = 'none';
+            }
+        });
+        // Smooth scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Active navigation highlight
+        const sections = document.querySelectorAll('section');
+        const navLinks = document.querySelectorAll('.nav-links a');
+
+        window.addEventListener('scroll', () => {
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                if (pageYOffset >= sectionTop - 60) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href').slice(1) === current) {
+                    link.classList.add('active');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
