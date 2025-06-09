@@ -4,7 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Derek Muriuki</title>
-<link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body>
         <!-- Loading Overlay -->
@@ -43,17 +44,321 @@
 
     <section class="hero" id="home">
         <div class="hero-content">
-            <h1>Hi, I'm <span style="color: var(--neon-blue)">Derek</span></h1>
-            <p>Full Stack Developer & Python Programmer</p>
-            <a href="#contact" class="cta-button">Get In Touch</a>
+            <div class="hero-text">
+                <p class="greeting">Hello, I'm</p>
+                <h1>Derek <span style="color: var(--neon-blue)">Muriuki</span></h1>
+                <p class="typing-text">
+                    <span class="text"></span>
+                    <span class="cursor">|</span>
+                </p>
+                <p class="hero-description">
+                    I craft exceptional digital experiences through clean code and creative solutions.
+                    Let's build something amazing together!
+                </p>
+                <div class="hero-buttons">
+                    <a href="#contact" class="cta-button">Get In Touch</a>
+                    <a href="#projects" class="cta-button secondary">View My Work</a>
+                </div>
+                <div class="social-links hero-social">
+                    <a href="https://github.com/dee-mee" target="_blank" rel="noopener noreferrer" title="GitHub">
+                        <i class="fab fa-github"></i>
+                    </a>
+                    <a href="https://www.linkedin.com/" target="_blank" rel="noopener noreferrer" title="LinkedIn">
+                        <i class="fab fa-linkedin-in"></i>
+                    </a>
+                    <a href="https://twitter.com/Deemeeb1" target="_blank" rel="noopener noreferrer" title="Twitter">
+                        <i class="fab fa-twitter"></i>
+                    </a>
+                    <a href="mailto:your.email@example.com" title="Email">
+                        <i class="fas fa-envelope"></i>
+                    </a>
+                </div>
+            </div>
+            <div class="hero-image">
+                <div class="hero-avatar">
+                    <!-- You can add your photo here -->
+                    <div class="avatar-placeholder">
+                        <i class="fas fa-user"></i>
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
+    <style>
+        .hero-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 4rem;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+        
+        .hero-text {
+            flex: 1;
+            max-width: 600px;
+        }
+        
+        .greeting {
+            font-size: 1.25rem;
+            color: var(--neon-blue);
+            margin-bottom: 0.5rem;
+        }
+        
+        .hero h1 {
+            font-size: 3.5rem;
+            margin: 0 0 1rem 0;
+            line-height: 1.2;
+        }
+        
+        .hero-description {
+            font-size: 1.1rem;
+            line-height: 1.6;
+            color: rgba(255, 255, 255, 0.8);
+            margin: 1.5rem 0 2rem;
+            max-width: 90%;
+        }
+        
+        .hero-buttons {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+        
+        .cta-button {
+            display: inline-block;
+            padding: 0.8rem 1.8rem;
+            background: var(--neon-blue);
+            color: #000;
+            text-decoration: none;
+            border-radius: 30px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+        }
+        
+        .cta-button:hover {
+            background: transparent;
+            border-color: var(--neon-blue);
+            color: var(--neon-blue);
+            transform: translateY(-2px);
+        }
+        
+        .cta-button.secondary {
+            background: transparent;
+            border: 2px solid var(--neon-blue);
+            color: var(--neon-blue);
+        }
+        
+        .cta-button.secondary:hover {
+            background: var(--neon-blue);
+            color: #000;
+        }
+        
+        .hero-social {
+            display: flex;
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+        }
+        
+        .hero-social a {
+            color: white;
+            font-size: 1.5rem;
+            transition: all 0.3s ease;
+        }
+        
+        .hero-social a:hover {
+            color: var(--neon-blue);
+            transform: translateY(-3px);
+        }
+        
+        .hero-image {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .hero-avatar {
+            width: 350px;
+            height: 350px;
+            border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
+            background: rgba(0, 243, 255, 0.1);
+            border: 2px solid var(--neon-blue);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            animation: morph 8s ease-in-out infinite;
+        }
+        
+        .avatar-placeholder {
+            font-size: 8rem;
+            color: var(--neon-blue);
+            opacity: 0.5;
+        }
+        
+        @keyframes morph {
+            0% { border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%; }
+            50% { border-radius: 70% 30% 30% 70% / 70% 70% 30% 30%; }
+            100% { border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%; }
+        }
+        
+        @media (max-width: 992px) {
+            .hero-content {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .hero-text {
+                max-width: 100%;
+            }
+            
+            .hero-buttons {
+                justify-content: center;
+            }
+            
+            .hero-social {
+                justify-content: center;
+            }
+            
+            .hero-description {
+                margin-left: auto;
+                margin-right: auto;
+            }
+        }
+        .typing-text {
+            font-family: 'Arial', sans-serif;
+            font-size: 1.5rem;
+            font-weight: 400;
+            color: white;
+            min-height: 2.5rem;
+            margin: 1.5rem 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
+        .typing-text .text {
+            color: var(--neon-blue);
+            font-weight: 500;
+            padding: 0 5px;
+        }
+        .cursor {
+            display: inline-block;
+            width: 3px;
+            height: 1.8rem;
+            background-color: var(--neon-blue);
+            margin-left: 4px;
+            animation: blink 0.8s infinite;
+            position: relative;
+            top: 2px;
+        }
+        @keyframes blink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
+        }
+    </style>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const textElement = document.querySelector('.typing-text .text');
+            const cursor = document.querySelector('.cursor');
+            const words = [
+                'Full Stack Developer',
+                'Python Programmer',
+                'Web Designer',
+                'Problem Solver',
+                'Tech Enthusiast'
+            ];
+            let wordIndex = 0;
+            let charIndex = 0;
+            let isDeleting = false;
+            let typeSpeed = 100; // Typing speed in ms
+            let waitTime = 2000; // Time to wait before deleting in ms
+
+            function type() {
+                const currentWord = words[wordIndex];
+                
+                if (isDeleting) {
+                    // Delete characters
+                    textElement.textContent = currentWord.substring(0, charIndex - 1);
+                    charIndex--;
+                    typeSpeed = 50; // Faster when deleting
+                } else {
+                    // Type characters
+                    textElement.textContent = currentWord.substring(0, charIndex + 1);
+                    charIndex++;
+                    typeSpeed = 100; // Normal typing speed
+                }
+
+                // Check if word is complete
+                if (!isDeleting && charIndex === currentWord.length) {
+                    // Pause at end of word
+                    typeSpeed = waitTime;
+                    isDeleting = true;
+                } else if (isDeleting && charIndex === 0) {
+                    // Move to next word
+                    isDeleting = false;
+                    wordIndex = (wordIndex + 1) % words.length;
+                }
+
+                setTimeout(type, typeSpeed);
+            }
+
+            // Start the typing effect
+            setTimeout(type, 1000);
+        });
+    </script>
 
     <section class="section" id="about">
         <h2 class="section-title">About Me</h2>
         <div class="about">
             <div class="about-image">
-                <img src="images/me.jpg" alt="Profile">
+                <svg width="300" height="300" viewBox="0 0 300 300" fill="none" xmlns="http://www.w3.org/2000/svg" class="floating" style="--neon-blue: #00f3ff;">
+                    <!-- Background Circle -->
+                    <circle cx="150" cy="150" r="140" fill="rgba(0, 0, 0, 0.2)" stroke="var(--neon-blue)" stroke-width="2" stroke-dasharray="10,5" opacity="0.5"/>
+                    
+                    <!-- Main Avatar Shape -->
+                    <circle cx="150" cy="130" r="70" fill="rgba(0, 243, 255, 0.1)" stroke="var(--neon-blue)" stroke-width="2">
+                        <animate attributeName="r" values="70;75;70" dur="8s" repeatCount="indefinite"/>
+                    </circle>
+                    
+                    <!-- Head -->
+                    <circle cx="150" cy="100" r="30" fill="none" stroke="var(--neon-blue)" stroke-width="2">
+                        <animate attributeName="cy" values="100;105;100" dur="6s" repeatCount="indefinite"/>
+                    </circle>
+                    
+                    <!-- Body -->
+                    <path d="M150 130 L150 180" stroke="var(--neon-blue)" stroke-width="2" stroke-linecap="round">
+                        <animate attributeName="d" values="M150 130 L150 180; M150 135 L150 185; M150 130 L150 180" dur="8s" repeatCount="indefinite"/>
+                    </path>
+                    
+                    <!-- Arms -->
+                    <path d="M150 140 L120 160 M150 140 L180 160" stroke="var(--neon-blue)" stroke-width="2" stroke-linecap="round">
+                        <animate attributeName="d" values="M150 140 L120 160 M150 140 L180 160; M150 145 L125 160 M150 145 L175 160; M150 140 L120 160 M150 140 L180 160" dur="7s" repeatCount="indefinite"/>
+                    </path>
+                    
+                    <!-- Legs -->
+                    <path d="M150 180 L130 220 M150 180 L170 220" stroke="var(--neon-blue)" stroke-width="2" stroke-linecap="round">
+                        <animate attributeName="d" values="M150 180 L130 220 M150 180 L170 220; M150 180 L135 220 M150 180 L165 220; M150 180 L130 220 M150 180 L170 220" dur="5s" repeatCount="indefinite"/>
+                    </path>
+                    
+                    <!-- Code Brackets -->
+                    <path d="M80 80 L60 80 L70 60 M220 80 L240 80 L230 60 M80 220 L60 220 L70 240 M220 220 L240 220 L230 240" stroke="var(--neon-blue)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" opacity="0.7">
+                        <animate attributeName="opacity" values="0.3;0.7;0.3" dur="10s" repeatCount="indefinite"/>
+                    </path>
+                    
+                    <!-- Floating Dots -->
+                    <circle cx="100" cy="100" r="2" fill="var(--neon-blue)">
+                        <animate attributeName="cy" values="100;90;100" dur="5s" repeatCount="indefinite"/>
+                    </circle>
+                    <circle cx="200" cy="200" r="2" fill="var(--neon-blue">
+                        <animate attributeName="cy" values="200;190;200" dur="4s" repeatCount="indefinite" begin="1s"/>
+                    </circle>
+                    <circle cx="220" cy="120" r="2" fill="var(--neon-blue)">
+                        <animate attributeName="cy" values="120;110;120" dur="6s" repeatCount="indefinite" begin="2s"/>
+                    </circle>
+                </svg>
             </div>
             <div class="about-content">
                 <p>Hello! I'm a passionate web developer with 2 years of experience in creating modern, responsive websites and applications.
@@ -75,20 +380,45 @@
         <h2 class="section-title">My Projects</h2>
         <div class="projects">
             <div class="project-card">
-                <img src="images/project1.png" alt="Project 1">
-                <h3>School website</h3>
-                <p>A School page to speed up things</p>
-            </div>
-            <div class="project-card">
-                <img src="images/portfolio.png" alt="Project 2">
-                <h3 href="dee-mee.github.io/portfolio/">Portfolio Website</h3>
-
+                <img src="images/portfolio.png" alt="Portfolio Website">
+                <h3>Portfolio Website</h3>
                 <p>A responsive portfolio website with modern animations</p>
+                <div class="project-actions">
+                    <a href="https://github.com/dee-mee/portfolio" class="project-btn btn-code" target="_blank" rel="noopener noreferrer">
+                        <i class="fas fa-code"></i> Code
+                    </a>
+                    <a href="#" class="project-btn btn-demo" target="_blank" rel="noopener noreferrer">
+                        <i class="fas fa-external-link-alt"></i> Demo
+                    </a>
+                </div>
             </div>
             <div class="project-card">
-                <img src="images/project2.png" alt="Project 3">
-                <h3>Bash script</h3>
+                <img src="images/project2.png" alt="Linux Setup Script">
+                <h3>Linux Setup Script</h3>
                 <p>A script that automates linux installation for basic applications.</p>
+                <div class="project-actions">
+                    <a href="https://github.com/dee-mee/linux-setup-script" class="project-btn btn-code" target="_blank" rel="noopener noreferrer">
+                        <i class="fas fa-code"></i> Code
+                    </a>
+                    <a href="#" class="project-btn btn-demo" target="_blank" rel="noopener noreferrer">
+                        <i class="fas fa-external-link-alt"></i> Demo
+                    </a>
+                </div>
+            </div>
+            <div class="project-card">
+                <div class="project-image-container">
+                    <img src="images/researchnest.png" alt="ResearchNest" style="width: 100%; height: auto; object-fit: cover; border-radius: 8px;">
+                </div>
+                <h3>ResearchNest</h3>
+                <p>AI-powered research paper management and question extraction system built with Flask and Python.</p>
+                <div class="project-actions">
+                    <a href="https://github.com/dee-mee/ResearchNest" class="project-btn btn-code" target="_blank" rel="noopener noreferrer">
+                        <i class="fas fa-code"></i> Code
+                    </a>
+                    <a href="#" class="project-btn btn-demo" target="_blank" rel="noopener noreferrer">
+                        <i class="fas fa-external-link-alt"></i> Demo
+                    </a>
+                </div>
             </div>
         </div>
     </section>
