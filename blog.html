@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog - Derek Muriuki</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="css/blog.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <!-- Loading Overlay -->
+    <div class="loading-overlay">
+        <div class="loading-spinner"></div>
+    </div>
+    
+    <!-- Particle Background -->
+    <canvas id="particles"></canvas>
+
+    <!-- Top Navigation Bar -->
+    <div class="top-nav">
+        <div class="theme-switcher">
+            <div class="theme-btn blue" data-theme="default"></div>
+            <div class="theme-btn purple" data-theme="purple"></div>
+            <div class="theme-btn green" data-theme="green"></div>
+            <div class="theme-btn orange" data-theme="orange"></div>
+        </div>
+        <div class="social-links">
+            <a href="https://github.com/dee-mee" title="GitHub">Git</a>
+            <a href="https://www.facebook.com/garfield.llama" title="Facebook">FB</a>
+            <a href="https://x.com/Deemeeb1" title="Twitter">X</a>
+        </div>
+    </div>
+    
+    <nav class="nav">
+        <div class="nav-content">
+            <div class="logo">Portfolio</div>
+            <div class="nav-links">
+                <a href="index.html#home">Home</a>
+                <a href="index.html#about">About</a>
+                <a href="index.html#projects">Projects</a>
+                <a href="blog.html" class="active">Blog</a>
+                <a href="index.html#contact">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <main class="blog-page">
+        <section class="section">
+            <h1 class="section-title">My Blog</h1>
+            <p class="section-subtitle">Thoughts, tutorials, and insights about web development and design</p>
+            
+            <div class="blog-filters">
+                <button class="filter-btn active" data-category="all">All Articles</button>
+                <button class="filter-btn" data-category="web-dev">Web Development</button>
+                <button class="filter-btn" data-category="python">Python</button>
+                <button class="filter-btn" data-category="ui-ux">UI/UX</button>
+            </div>
+
+            <div class="blog-grid">
+                <!-- Blog Post 1 -->
+                <article class="blog-card" data-category="web-dev">
+                    <div class="blog-image">
+                        <img src="https://via.placeholder.com/600x400/1a1a2e/00f3ff?text=Flask+Web+Dev" alt="Flask Web Development">
+                    </div>
+                    <div class="blog-content">
+                        <div class="blog-meta">
+                            <span class="blog-category">Web Development</span>
+                            <span class="blog-date">June 5, 2025</span>
+                        </div>
+                        <h2><a href="blog-post.html" class="blog-title">Building Modern Web Applications with Flask</a></h2>
+                        <p>Learn how to create scalable web applications using Python and Flask framework with best practices and modern tooling. This guide covers everything from setup to deployment.</p>
+                        <div class="blog-footer">
+                            <a href="blog-post.html" class="read-more">Read More <i class="fas fa-arrow-right"></i></a>
+                            <span class="read-time">8 min read</span>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Blog Post 2 -->
+                <article class="blog-card" data-category="python">
+                    <div class="blog-image">
+                        <img src="https://via.placeholder.com/600x400/1a1a2e/00f3ff?text=Python" alt="Python Tips">
+                    </div>
+                    <div class="blog-content">
+                        <div class="blog-meta">
+                            <span class="blog-category">Python</span>
+                            <span class="blog-date">May 28, 2025</span>
+                        </div>
+                        <h2><a href="#" class="blog-title">Python Tips for Clean and Efficient Code</a></h2>
+                        <p>Discover essential Python tips and tricks to write cleaner, more efficient, and more Pythonic code in your projects. Learn about list comprehensions, decorators, and more.</p>
+                        <div class="blog-footer">
+                            <a href="#" class="read-more">Read More <i class="fas fa-arrow-right"></i></a>
+                            <span class="read-time">6 min read</span>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Blog Post 3 -->
+                <article class="blog-card" data-category="ui-ux">
+                    <div class="blog-image">
+                        <img src="https://via.placeholder.com/600x400/1a1a2e/00f3ff?text=UI%2FUX+Design" alt="UI/UX Design">
+                    </div>
+                    <div class="blog-content">
+                        <div class="blog-meta">
+                            <span class="blog-category">UI/UX</span>
+                            <span class="blog-date">May 15, 2025</span>
+                        </div>
+                        <h2><a href="#" class="blog-title">Principles of Modern Web Design</a></h2>
+                        <p>Explore the fundamental principles that make for effective and engaging web design in today's digital landscape. Learn about typography, color theory, and user experience best practices.</p>
+                        <div class="blog-footer">
+                            <a href="#" class="read-more">Read More <i class="fas fa-arrow-right"></i></a>
+                            <span class="read-time">10 min read</span>
+                        </div>
+                    </div>
+                </article>
+            </div>
+
+            <div class="pagination">
+                <a href="#" class="page-btn active">1</a>
+                <a href="#" class="page-btn">2</a>
+                <a href="#" class="page-btn">3</a>
+                <a href="#" class="page-btn next">Next <i class="fas fa-chevron-right"></i></a>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <p>&copy; 2025 Derek Muriuki. All rights reserved.</p>
+            <div class="social-links">
+                <a href="https://github.com/dee-mee" target="_blank" rel="noopener noreferrer" title="GitHub">
+                    <i class="fab fa-github"></i>
+                </a>
+                <a href="https://x.com/Deemeeb1" target="_blank" rel="noopener noreferrer" title="Twitter">
+                    <i class="fab fa-twitter"></i>
+                </a>
+                <a href="https://www.linkedin.com/" target="_blank" rel="noopener noreferrer" title="LinkedIn">
+                    <i class="fab fa-linkedin-in"></i>
+                </a>
+                <a href="mailto:your.email@example.com" title="Email">
+                    <i class="fas fa-envelope"></i>
+                </a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Hide loading overlay when page is fully loaded
+        window.addEventListener('load', function() {
+            const loadingOverlay = document.querySelector('.loading-overlay');
+            if (loadingOverlay) {
+                loadingOverlay.classList.add('hidden');
+                // Remove from DOM after animation completes
+                setTimeout(() => {
+                    loadingOverlay.style.display = 'none';
+                }, 500);
+            }
+        });
+
+        // Fallback in case load event doesn't fire
+        setTimeout(() => {
+            const loadingOverlay = document.querySelector('.loading-overlay');
+            if (loadingOverlay && loadingOverlay.style.display !== 'none') {
+                loadingOverlay.classList.add('hidden');
+                setTimeout(() => {
+                    loadingOverlay.style.display = 'none';
+                }, 500);
+            }
+        }, 3000); // 3 second timeout
+
+        document.addEventListener('DOMContentLoaded', function() {
+            // Theme Switcher
+            document.querySelectorAll('.theme-btn').forEach(btn => {
+                btn.addEventListener('click', () => {
+                    document.body.className = '';
+                    if (btn.dataset.theme !== 'default') {
+                        document.body.classList.add(`theme-${btn.dataset.theme}`);
+                    }
+                    localStorage.setItem('theme', btn.dataset.theme);
+                });
+            });
+
+            // Set initial theme
+            const savedTheme = localStorage.getItem('theme') || 'default';
+            if (savedTheme !== 'default') {
+                document.body.classList.add(`theme-${savedTheme}`);
+            }
+
+            // Particle Background
+            const canvas = document.getElementById('particles');
+            const ctx = canvas.getContext('2d');
+            
+            canvas.width = window.innerWidth;
+            canvas.height = document.body.scrollHeight;
+
+            const particles = [];
+            
+            class Particle {
+                constructor() {
+                    this.x = Math.random() * canvas.width;
+                    this.y = Math.random() * canvas.height;
+                    this.size = Math.random() * 2;
+                    this.speedX = Math.random() * 3 - 1.5;
+                    this.speedY = Math.random() * 3 - 1.5;
+                }
+
+
+                update() {
+                    this.x += this.speedX;
+                    this.y += this.speedY;
+
+                    if (this.x > canvas.width) this.x = 0;
+                    if (this.x < 0) this.x = canvas.width;
+                    if (this.y > canvas.height) this.y = 0;
+                    if (this.y < 0) this.y = canvas.height;
+                }
+
+
+                draw() {
+                    ctx.fillStyle = getComputedStyle(document.body).getPropertyValue('--neon-blue');
+                    ctx.beginPath();
+                    ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+                    ctx.fill();
+                }
+            }
+
+
+            function initParticles() {
+                for (let i = 0; i < 100; i++) {
+                    particles.push(new Particle());
+                }
+            }
+
+
+            function animateParticles() {
+                ctx.clearRect(0, 0, canvas.width, canvas.height);
+                
+                particles.forEach(particle => {
+                    particle.update();
+                    particle.draw();
+                });
+                
+                requestAnimationFrame(animateParticles);
+            }
+
+
+            initParticles();
+            animateParticles();
+
+            // Resize handler
+            window.addEventListener('resize', () => {
+                canvas.width = window.innerWidth;
+                canvas.height = document.body.scrollHeight;
+            });
+
+            // Blog filter functionality
+            const filterButtons = document.querySelectorAll('.filter-btn');
+            const blogCards = document.querySelectorAll('.blog-card');
+
+            filterButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    // Remove active class from all buttons
+                    filterButtons.forEach(btn => btn.classList.remove('active'));
+                    // Add active class to clicked button
+                    button.classList.add('active');
+                    
+                    const category = button.getAttribute('data-category');
+                    
+                    blogCards.forEach(card => {
+                        if (category === 'all' || card.getAttribute('data-category') === category) {
+                            card.style.display = 'flex';
+                        } else {
+                            card.style.display = 'none';
+                        }
+                    });
+                });
+            });
+        });
+    </script>
+</body>
+</html>

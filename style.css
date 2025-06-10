@@ -152,8 +152,14 @@
                     display: flex;
                     justify-content: center;
                     align-items: center;
-                    z-index: 1000;
+                    z-index: 9999;
+                    opacity: 1;
                     transition: opacity 0.5s ease;
+                }
+
+                .loading-overlay.hidden {
+                    opacity: 0;
+                    pointer-events: none;
                 }
         
                 .loading-spinner {
@@ -535,40 +541,64 @@
 
         .btn-demo:hover {
             background: #39d353;
-            color: #000;
-        }
+    color: #000;
+    text-decoration: none;
+    border-radius: 30px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    border: 2px solid var(--neon-blue);
+}
 
-                /* Ongoing Projects Section */
-                .ongoing-projects {
-                    display: grid;
-                    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-                    gap: 2rem;
-                }
-        
-                .ongoing-project {
-                    background: rgba(255, 255, 255, 0.05);
-                    border-radius: 15px;
-                    padding: 1.5rem;
-                    position: relative;
-                    overflow: hidden;
-                }
-        
-                .progress-bar {
-                    position: absolute;
-                    bottom: 0;
-                    left: 0;
-                    height: 4px;
-                    background: var(--accent);
-                    animation: progress 3s ease-in-out infinite;
-                }
-        
-                @keyframes progress {
-                    0% { width: 0; }
-                    50% { width: 70%; }
-                    100% { width: 100%; }
-                }
-  /* Reviews Section */
-  .reviews {
+.cta-button:hover {
+    background: transparent;
+    color: var(--neon-blue);
+    transform: translateY(-2px);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .blog-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .blog-card {
+        max-width: 500px;
+        margin: 0 auto;
+    }
+}
+
+/* Ongoing Projects Section */
+.ongoing-projects {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+.ongoing-project {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 15px;
+    padding: 1.5rem;
+    position: relative;
+    overflow: hidden;
+}
+
+.progress-bar {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 4px;
+    background: var(--accent);
+    animation: progress 3s ease-in-out infinite;
+}
+
+@keyframes progress {
+    0% { width: 0; }
+    50% { width: 70%; }
+    100% { width: 100%; }
+}
+
+/* Reviews Section */
+.reviews {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 2rem;
