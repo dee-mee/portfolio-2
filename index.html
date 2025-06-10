@@ -382,44 +382,54 @@
         <h2 class="section-title">My Projects</h2>
         <div class="projects">
             <div class="project-card">
-                <img src="images/portfolio.png" alt="Portfolio Website">
-                <h3>Portfolio Website</h3>
-                <p>A responsive portfolio website with modern animations</p>
-                <div class="project-actions">
-                    <a href="https://github.com/dee-mee/portfolio" class="project-btn btn-code" target="_blank" rel="noopener noreferrer">
-                        <i class="fas fa-code"></i> Code
-                    </a>
-                    <a href="https://dee-mee.github.io/portfolio" class="project-btn btn-demo" target="_blank" rel="noopener noreferrer">
-                        <i class="fas fa-external-link-alt"></i> Demo
-                    </a>
+                <div class="project-image">
+                    <img src="images/portfolio.png" alt="Portfolio Website">
+                </div>
+                <div class="project-content">
+                    <h3>Portfolio Website</h3>
+                    <p>A responsive portfolio website with modern animations</p>
+                    <div class="project-links">
+                        <a href="https://github.com/dee-mee/portfolio" target="_blank" rel="noopener noreferrer">
+                            <i class="fas fa-code"></i> Code
+                        </a>
+                        <a href="https://dee-mee.github.io/portfolio" target="_blank" rel="noopener noreferrer">
+                            <i class="fas fa-external-link-alt"></i> Demo
+                        </a>
+                    </div>
                 </div>
             </div>
             <div class="project-card">
-                <img src="images/project2.png" alt="Linux Setup Script">
-                <h3>Linux Setup Script</h3>
-                <p>A script that automates linux installation for basic applications.</p>
-                <div class="project-actions">
-                    <a href="https://github.com/dee-mee/shell-script.git" class="project-btn btn-code" target="_blank" rel="noopener noreferrer">
-                        <i class="fas fa-code"></i> Code
-                    </a>
-                    <a href="https://github.com/dee-mee/shell-script/blob/master/install.sh" class="project-btn btn-demo" target="_blank" rel="noopener noreferrer">
-                        <i class="fas fa-external-link-alt"></i> Demo
-                    </a>
+                <div class="project-image">
+                    <img src="images/project2.png" alt="Linux Setup Script">
+                </div>
+                <div class="project-content">
+                    <h3>Linux Setup Script</h3>
+                    <p>A script that automates linux installation for basic applications.</p>
+                    <div class="project-links">
+                        <a href="https://github.com/dee-mee/shell-script.git" target="_blank" rel="noopener noreferrer">
+                            <i class="fas fa-code"></i> Code
+                        </a>
+                        <a href="https://github.com/dee-mee/shell-script/blob/master/install.sh" target="_blank" rel="noopener noreferrer">
+                            <i class="fas fa-external-link-alt"></i> Demo
+                        </a>
+                    </div>
                 </div>
             </div>
             <div class="project-card">
-                <div class="project-image-container">
-                    <img src="images/researchnest.png" alt="ResearchNest" style="width: 100%; height: auto; object-fit: cover; border-radius: 8px;">
+                <div class="project-image">
+                    <img src="images/researchnest.png" alt="ResearchNest">
                 </div>
-                <h3>ResearchNest</h3>
-                <p>AI-powered research paper management and question extraction system built with Flask and Python.</p>
-                <div class="project-actions">
-                    <a href="https://github.com/Devlinx-s/ResearchNest.git" class="project-btn btn-code" target="_blank" rel="noopener noreferrer">
-                        <i class="fas fa-code"></i> Code
-                    </a>
-                    <a href="https://github.com/Devlinx-s/ResearchNest.git" class="project-btn btn-demo" target="_blank" rel="noopener noreferrer">
-                        <i class="fas fa-external-link-alt"></i> Demo
-                    </a>
+                <div class="project-content">
+                    <h3>ResearchNest</h3>
+                    <p>AI-powered research paper management and question extraction system built with Flask and Python.</p>
+                    <div class="project-links">
+                        <a href="https://github.com/Devlinx-s/ResearchNest.git" target="_blank" rel="noopener noreferrer">
+                            <i class="fas fa-code"></i> Code
+                        </a>
+                        <a href="https://github.com/Devlinx-s/ResearchNest.git" target="_blank" rel="noopener noreferrer">
+                            <i class="fas fa-external-link-alt"></i> Demo
+                        </a>
+                    </div>
                 </div>
             </div>
         </div>
@@ -502,27 +512,40 @@
 
         <section class="section" id="reviews">
             <h2 class="section-title">Client Reviews</h2>
-            <div class="reviews">
-                <div class="review-card">
-                    <div class="stars">★★★★★</div>
-                    <p>"Exceptional work! Delivered the project ahead of schedule with outstanding quality."</p>
-                    <p><strong>nams & kyle</strong></p>
-                </div>
-                <div class="review-card">
-                    <div class="stars">★★★★★</div>
-                    <p>"Innovative solutions and great communication throughout the project."</p>
-                    <p><strong>- Vincentia Seline</strong></p>
-                </div>
-                <div class="review-card">
-                    <div class="stars">★★★★★</div>
-                    <p>"Transformed our vision into reality. Highly recommended!"</p>
-                    <p><strong>- Nyooti, Tom</strong></p>
-                </div>
-                <div class="review-card">
-                    <div class="stars">★★★★★</div>
-                    <p>"Your portfolio is a true testament t your hard work and dedication. Each project reflects a deep understanding of the
-                        subject matter, a commitmemnt to excellence, and consistency across your project across."</p>
-                    <p><strong>-Ouma, Tonny </strong></p>
+            <div class="reviews-container">
+                <div class="reviews-track">
+                    <!-- First set of reviews (visible) -->
+                    <div class="review-card">
+                        <div class="stars">★★★★★</div>
+                        <p>"Exceptional work! Delivered the project ahead of schedule with outstanding quality."</p>
+                        <p><strong>nams & kyle</strong></p>
+                    </div>
+                    <div class="review-card">
+                        <div class="stars">★★★★★</div>
+                        <p>"Highly recommend! Great communication and attention to detail throughout the project."</p>
+                        <p><strong>-Sarah Johnson</strong></p>
+                    </div>
+                    <div class="review-card">
+                        <div class="stars">★★★★★</div>
+                        <p>"Your portfolio is a true testament to your hard work and dedication. Each project reflects a deep understanding of the subject matter."</p>
+                        <p><strong>-Ouma, Tonny</strong></p>
+                    </div>
+                    <!-- Duplicate set for seamless looping -->
+                    <div class="review-card">
+                        <div class="stars">★★★★★</div>
+                        <p>"Exceptional work! Delivered the project ahead of schedule with outstanding quality."</p>
+                        <p><strong>nams & kyle</strong></p>
+                    </div>
+                    <div class="review-card">
+                        <div class="stars">★★★★★</div>
+                        <p>"Highly recommend! Great communication and attention to detail throughout the project."</p>
+                        <p><strong>-Sarah Johnson</strong></p>
+                    </div>
+                    <div class="review-card">
+                        <div class="stars">★★★★★</div>
+                        <p>"Your portfolio is a true testament to your hard work and dedication. Each project reflects a deep understanding of the subject matter."</p>
+                        <p><strong>-Ouma, Tonny</strong></p>
+                    </div>
                 </div>
             </div>
         </section>
@@ -565,8 +588,14 @@
             </div>
 
             <div class="blog-cta">
-                <p>Want to read more articles? Check out my blog for the latest updates and tutorials.</p>
-                <a href="blog.html" class="cta-button">View All Articles</a>
+                <div class="cta-content">
+                    <h3>Want to read more articles?</h3>
+                    <p>Explore my blog for the latest insights, tutorials, and updates on web development, design, and more.</p>
+                    <a href="blog.html" class="cta-button">
+                        View All Articles
+                        <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
             </div>
         </section>
 
@@ -671,13 +700,6 @@
             canvas.height = window.innerHeight;
         });
 
-        // Project Cards Flip
-        document.querySelectorAll('.project-card').forEach(card => {
-            card.addEventListener('click', () => {
-                card.classList.toggle('flipped');
-            });
-        });
-
         // Modal Handler
         const modal = document.querySelector('.modal');
         const closeModal = document.querySelector('.close-modal');
@@ -749,5 +771,25 @@
         });
         
     </script>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <p>&copy; 2025 Derek Muriuki. All rights reserved.</p>
+            <div class="social-links">
+                <a href="https://github.com/dee-mee" target="_blank" rel="noopener noreferrer" title="GitHub">
+                    <i class="fab fa-github"></i>
+                </a>
+                <a href="https://x.com/Deemeeb1" target="_blank" rel="noopener noreferrer" title="Twitter">
+                    <i class="fab fa-twitter"></i>
+                </a>
+                <a href="https://www.linkedin.com/" target="_blank" rel="noopener noreferrer" title="LinkedIn">
+                    <i class="fab fa-linkedin-in"></i>
+                </a>
+                <a href="mailto:your.email@example.com" title="Email">
+                    <i class="fas fa-envelope"></i>
+                </a>
+            </div>
+        </div>
+    </footer>
 </body>
 </html>

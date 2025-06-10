@@ -1,4 +1,99 @@
 /* Blog Page Styles */
+
+/* Blog CTA Section */
+.blog-cta {
+    background: linear-gradient(135deg, rgba(21, 101, 192, 0.1) 0%, rgba(0, 0, 0, 0.2) 100%);
+    border-radius: 15px;
+    padding: 3rem 2rem;
+    margin: 4rem auto 0;
+    max-width: 900px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(100, 181, 246, 0.2);
+    transition: all 0.3s ease;
+}
+
+.blog-cta::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, var(--neon-blue), transparent);
+    animation: glow 3s linear infinite;
+}
+
+.blog-cta .cta-content h3 {
+    color: var(--neon-blue);
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    font-weight: 600;
+    text-shadow: 0 0 10px rgba(100, 181, 246, 0.3);
+}
+
+.blog-cta .cta-content p {
+    color: var(--text-light);
+    font-size: 1.1rem;
+    max-width: 700px;
+    margin: 0 auto 2rem;
+    line-height: 1.6;
+}
+
+.blog-cta .cta-button {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.8rem 2rem;
+    background: var(--neon-blue);
+    color: #fff;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(100, 181, 246, 0.3);
+    border: 2px solid transparent;
+}
+
+.blog-cta .cta-button i {
+    transition: transform 0.3s ease;
+}
+
+.blog-cta .cta-button:hover {
+    background: transparent;
+    border-color: var(--neon-blue);
+    color: var(--neon-blue);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(100, 181, 246, 0.4);
+}
+
+.blog-cta .cta-button:hover i {
+    transform: translateX(4px);
+}
+
+@keyframes glow {
+    0% { opacity: 0.3; }
+    50% { opacity: 1; }
+    100% { opacity: 0.3; }
+}
+
+@media (max-width: 768px) {
+    .blog-cta {
+        padding: 2rem 1.5rem;
+        margin: 3rem 1rem 0;
+    }
+    
+    .blog-cta .cta-content h3 {
+        font-size: 1.5rem;
+    }
+    
+    .blog-cta .cta-content p {
+        font-size: 1rem;
+    }
+}
+
 .blog-page {
     padding: 10px 2rem 4rem;
     max-width: 1200px;
@@ -49,6 +144,90 @@
     to {
         opacity: 1;
         transform: translateY(0);
+    }
+}
+
+/* Footer Styles */
+.footer {
+    background: rgba(10, 10, 10, 0.8);
+    backdrop-filter: blur(10px);
+    padding: 2rem 0;
+    margin-top: 4rem;
+    border-top: 1px solid var(--neon-blue);
+    position: relative;
+    overflow: hidden;
+}
+
+.footer::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, var(--neon-blue), transparent);
+}
+
+.footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 1.5rem;
+}
+
+.footer p {
+    color: var(--text);
+    font-size: 0.9rem;
+    margin: 0;
+    opacity: 0.8;
+    transition: opacity 0.3s ease;
+}
+
+.footer:hover p {
+    opacity: 1;
+}
+
+.footer .social-links {
+    display: flex;
+    gap: 1.5rem;
+    margin-top: 0.5rem;
+}
+
+.footer .social-links a {
+    color: var(--text);
+    font-size: 1.2rem;
+    transition: all 0.3s ease;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    background: rgba(0, 0, 0, 0.2);
+}
+
+.footer .social-links a:hover {
+    color: var(--neon-blue);
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(0, 243, 255, 0.3);
+    border-color: var(--neon-blue);
+    background: rgba(0, 243, 255, 0.1);
+}
+
+/* Responsive Footer */
+@media (max-width: 768px) {
+    .footer-content {
+        flex-direction: column;
+        gap: 1rem;
+    }
+    
+    .footer .social-links {
+        margin-top: 1rem;
     }
 }
 
