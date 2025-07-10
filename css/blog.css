@@ -1,5 +1,43 @@
 /* Blog Page Styles */
 
+/* Back to Home Button */
+.back-to-home {
+    margin-bottom: 2rem;
+    position: relative;
+    z-index: 10;
+}
+
+.back-button {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--neon-blue);
+    text-decoration: none;
+    font-size: 1rem;
+    font-weight: 500;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    transition: all 0.3s ease;
+    background: rgba(0, 243, 255, 0.1);
+    border: 1px solid var(--neon-blue);
+}
+
+.back-button:hover, .back-button:focus {
+    background: var(--neon-blue);
+    color: #000;
+    transform: translateX(-5px);
+    box-shadow: 0 0 15px rgba(0, 243, 255, 0.5);
+    outline: none;
+}
+
+.back-button i {
+    transition: transform 0.3s ease;
+}
+
+.back-button:hover i {
+    transform: translateX(-3px);
+}
+
 /* Blog CTA Section */
 .blog-cta {
     background: linear-gradient(135deg, rgba(21, 101, 192, 0.1) 0%, rgba(0, 0, 0, 0.2) 100%);
