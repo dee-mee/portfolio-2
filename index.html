@@ -835,10 +835,12 @@
                 if (window.innerWidth <= 768) {
                     navLinks.setAttribute('aria-hidden', 'true');
                     mobileMenuBtn.setAttribute('aria-expanded', 'false');
-                    navLinks.style.display = 'none'; // Hide by default on mobile
+                    navLinks.style.display = 'none';
+                    navLinks.style.opacity = '0';
                 } else {
                     navLinks.removeAttribute('aria-hidden');
-                    navLinks.style.display = 'flex'; // Show on desktop
+                    navLinks.style.display = 'flex';
+                    navLinks.style.opacity = '1';
                     mobileMenuBtn.setAttribute('aria-expanded', 'true');
                 }
             }
@@ -847,28 +849,28 @@
             function toggleMenu() {
                 const isExpanded = mobileMenuBtn.getAttribute('aria-expanded') === 'true';
                 mobileMenuBtn.setAttribute('aria-expanded', !isExpanded);
-                navLinks.setAttribute('aria-hidden', isExpanded);
                 
-                // Toggle active class with a small delay to ensure the transition works
                 if (!isExpanded) {
-                    navLinks.style.display = 'flex'; // Show the menu before animating
+                    // Show menu
+                    navLinks.style.display = 'flex';
                     setTimeout(() => {
                         navLinks.classList.add('active');
                         overlay.classList.add('active');
+                        document.body.style.overflow = 'hidden';
                     }, 10);
                 } else {
+                    // Hide menu
                     navLinks.classList.remove('active');
                     overlay.classList.remove('active');
-                    // Hide the menu after the transition ends
-                    navLinks.addEventListener('transitionend', function handler() {
+                    document.body.style.overflow = '';
+                    
+                    // Reset menu after transition
+                    setTimeout(() => {
                         if (!navLinks.classList.contains('active')) {
                             navLinks.style.display = 'none';
-                            navLinks.removeEventListener('transitionend', handler);
                         }
-                    });
+                    }, 300); // Match this with your CSS transition time
                 }
-                
-                document.body.style.overflow = isExpanded ? '' : 'hidden';
             }
             
             // Close menu when clicking on a nav item

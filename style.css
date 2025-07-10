@@ -313,22 +313,25 @@ body {
         position: fixed;
         top: 60px; /* Position below the navbar */
         right: -100%;
-        width: 70%;
-        max-width: 300px;
-        height: calc(100vh - 60px); /* Subtract navbar height */
+        width: 100%; /* Full width */
+        height: 0;
         background: var(--dark-bg);
         flex-direction: column;
-        padding: 2rem;
+        padding: 0;
         z-index: 1001;
-        transition: transform 0.3s ease; /* Changed from right to transform for better performance */
-        transform: translateX(0);
-        box-shadow: -5px 0 15px rgba(0, 0, 0, 0.2);
-        overflow-y: auto; /* Add scroll if content is too long */
-        will-change: transform; /* Optimize for animations */
+        transition: all 0.3s ease;
+        opacity: 0;
+        visibility: hidden;
+        overflow: hidden;
     }
     
     .nav-links.active {
-        transform: translateX(-100%); /* Slide in from right */
+        right: 0;
+        height: auto;
+        min-height: 100vh;
+        padding: 2rem 1rem;
+        opacity: 1;
+        visibility: visible;
     }
     
     /* Removed redundant .nav-links.active rule as it's now handled above */
@@ -358,14 +361,16 @@ body {
         padding-top: 2rem;
     }
 
-    /* Adjust overlay */
+    /* Overlay styles */
     .overlay {
-        top: 60px; /* Start below navbar */
-        height: calc(100vh - 60px); /* Full height minus navbar */
+        display: none; /* Hide overlay by default */
     }
     
     .overlay.active {
+        display: block;
         background: rgba(0, 0, 0, 0.9);
+        top: 60px;
+        height: calc(100vh - 60px);
     }
 }
 
