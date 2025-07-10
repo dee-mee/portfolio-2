@@ -835,8 +835,10 @@
                 if (window.innerWidth <= 768) {
                     navLinks.setAttribute('aria-hidden', 'true');
                     mobileMenuBtn.setAttribute('aria-expanded', 'false');
+                    navLinks.style.display = 'none'; // Hide by default on mobile
                 } else {
                     navLinks.removeAttribute('aria-hidden');
+                    navLinks.style.display = 'flex'; // Show on desktop
                     mobileMenuBtn.setAttribute('aria-expanded', 'true');
                 }
             }
@@ -846,8 +848,26 @@
                 const isExpanded = mobileMenuBtn.getAttribute('aria-expanded') === 'true';
                 mobileMenuBtn.setAttribute('aria-expanded', !isExpanded);
                 navLinks.setAttribute('aria-hidden', isExpanded);
-                navLinks.classList.toggle('active');
-                overlay.classList.toggle('active');
+                
+                // Toggle active class with a small delay to ensure the transition works
+                if (!isExpanded) {
+                    navLinks.style.display = 'flex'; // Show the menu before animating
+                    setTimeout(() => {
+                        navLinks.classList.add('active');
+                        overlay.classList.add('active');
+                    }, 10);
+                } else {
+                    navLinks.classList.remove('active');
+                    overlay.classList.remove('active');
+                    // Hide the menu after the transition ends
+                    navLinks.addEventListener('transitionend', function handler() {
+                        if (!navLinks.classList.contains('active')) {
+                            navLinks.style.display = 'none';
+                            navLinks.removeEventListener('transitionend', handler);
+                        }
+                    });
+                }
+                
                 document.body.style.overflow = isExpanded ? '' : 'hidden';
             }
             

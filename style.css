@@ -162,6 +162,7 @@ body {
     backdrop-filter: blur(10px);
     z-index: 1000;
     border-bottom: 1px solid rgba(0, 243, 255, 0.1);
+    overflow: hidden; /* Prevent any content from overflowing */
 }
 
 /* Mobile Menu Button */
@@ -254,9 +255,14 @@ body {
 
 /* Mobile Navigation */
 @media (max-width: 768px) {
+    html, body {
+        width: 100%;
+        overflow-x: hidden; /* Prevent horizontal scroll */
+        position: relative;
+    }
+    
     body {
         padding-top: 60px; /* Add padding to prevent content from being hidden under fixed navbar */
-        overflow-x: hidden; /* Prevent horizontal scroll */
     }
 
     .nav {
@@ -314,14 +320,18 @@ body {
         flex-direction: column;
         padding: 2rem;
         z-index: 1001;
-        transition: right 0.3s ease;
+        transition: transform 0.3s ease; /* Changed from right to transform for better performance */
+        transform: translateX(0);
         box-shadow: -5px 0 15px rgba(0, 0, 0, 0.2);
         overflow-y: auto; /* Add scroll if content is too long */
+        will-change: transform; /* Optimize for animations */
     }
     
     .nav-links.active {
-        right: 0;
+        transform: translateX(-100%); /* Slide in from right */
     }
+    
+    /* Removed redundant .nav-links.active rule as it's now handled above */
     
     .nav-links a {
         display: block;
@@ -349,9 +359,12 @@ body {
     }
 
     /* Adjust overlay */
-    .overlay.active {
+    .overlay {
         top: 60px; /* Start below navbar */
         height: calc(100vh - 60px); /* Full height minus navbar */
+    }
+    
+    .overlay.active {
         background: rgba(0, 0, 0, 0.9);
     }
 }
