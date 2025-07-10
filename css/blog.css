@@ -2,24 +2,34 @@
 
 /* Back to Home Button */
 .back-to-home {
-    margin-bottom: 2rem;
+    margin: 0 0 2rem 0;
+    padding: 0 1rem;
     position: relative;
     z-index: 10;
+    width: 100%;
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+    box-sizing: border-box;
 }
 
 .back-button {
     display: inline-flex;
     align-items: center;
+    justify-content: center;
     gap: 0.5rem;
     color: var(--neon-blue);
     text-decoration: none;
     font-size: 1rem;
     font-weight: 500;
-    padding: 0.5rem 1rem;
+    padding: 0.75rem 1.25rem;
     border-radius: 4px;
     transition: all 0.3s ease;
     background: rgba(0, 243, 255, 0.1);
     border: 1px solid var(--neon-blue);
+    width: 100%;
+    max-width: 200px;
+    text-align: center;
 }
 
 .back-button:hover, .back-button:focus {
@@ -118,9 +128,20 @@
 }
 
 @media (max-width: 768px) {
+    .back-to-home {
+        padding: 0 1rem;
+        margin: 0 auto 1.5rem;
+    }
+    
+    .back-button {
+        max-width: 100%;
+        padding: 0.9rem 1.5rem;
+        font-size: 1.1rem;
+    }
+    
     .blog-cta {
         padding: 2rem 1.5rem;
-        margin: 3rem 1rem 0;
+        margin: 2rem 1rem 0;
     }
     
     .blog-cta .cta-content h3 {
