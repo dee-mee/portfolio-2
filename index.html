@@ -54,21 +54,18 @@
     <nav class="nav" aria-label="Main navigation">
         <div class="nav-content">
             <a href="#home" class="logo" aria-label="Home">Portfolio</a>
-            <button class="mobile-menu-btn" aria-expanded="false" aria-controls="main-menu" aria-label="Toggle menu">
-                <span class="sr-only">Menu</span>
-                <span class="menu-icon" aria-hidden="true">
-                    <span class="menu-line"></span>
-                    <span class="menu-line"></span>
-                    <span class="menu-line"></span>
-                </span>
+            <button class="mobile-menu-btn" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="main-navigation">
+                <span class="menu-line"></span>
+                <span class="menu-line"></span>
+                <span class="menu-line"></span>
             </button>
-            <div class="nav-links" id="main-menu">
-                <a href="#home" class="active" aria-current="page">Home</a>
-                <a href="#about">About</a>
-                <a href="#projects">Projects</a>
-                <a href="#blog">Blog</a>
-                <a href="#contact">Contact</a>
-            </div>
+            <nav class="nav-links" id="main-navigation" aria-hidden="true">
+                <a href="#home" class="nav-link" aria-current="page">Home</a>
+                <a href="#about" class="nav-link">About</a>
+                <a href="#projects" class="nav-link">Projects</a>
+                <a href="#blog" class="nav-link">Blog</a>
+                <a href="#contact" class="nav-link">Contact</a>
+            </nav>
             <div class="overlay" aria-hidden="true"></div>
         </div>
     </nav>
@@ -831,12 +828,24 @@
             const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
             const navLinks = document.querySelector('.nav-links');
             const overlay = document.querySelector('.overlay');
-            const navItems = document.querySelectorAll('.nav-links a');
+            const navItems = document.querySelectorAll('.nav-link');
+            
+            // Initialize mobile menu state
+            function initMobileMenu() {
+                if (window.innerWidth <= 768) {
+                    navLinks.setAttribute('aria-hidden', 'true');
+                    mobileMenuBtn.setAttribute('aria-expanded', 'false');
+                } else {
+                    navLinks.removeAttribute('aria-hidden');
+                    mobileMenuBtn.setAttribute('aria-expanded', 'true');
+                }
+            }
             
             // Toggle mobile menu
             function toggleMenu() {
-                const isExpanded = mobileMenuBtn.getAttribute('aria-expanded') === 'true' || false;
+                const isExpanded = mobileMenuBtn.getAttribute('aria-expanded') === 'true';
                 mobileMenuBtn.setAttribute('aria-expanded', !isExpanded);
+                navLinks.setAttribute('aria-hidden', isExpanded);
                 navLinks.classList.toggle('active');
                 overlay.classList.toggle('active');
                 document.body.style.overflow = isExpanded ? '' : 'hidden';
@@ -860,12 +869,19 @@
             // Handle window resize
             function handleResize() {
                 if (window.innerWidth > 768) {
-                    mobileMenuBtn.setAttribute('aria-expanded', 'false');
                     navLinks.classList.remove('active');
                     overlay.classList.remove('active');
                     document.body.style.overflow = '';
+                    navLinks.removeAttribute('aria-hidden');
+                    mobileMenuBtn.setAttribute('aria-expanded', 'true');
+                } else {
+                    navLinks.setAttribute('aria-hidden', 'true');
+                    mobileMenuBtn.setAttribute('aria-expanded', 'false');
                 }
             }
+            
+            // Initialize mobile menu on page load
+            initMobileMenu();
             
             window.addEventListener('resize', handleResize);
             

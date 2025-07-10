@@ -256,6 +256,7 @@ body {
 @media (max-width: 768px) {
     body {
         padding-top: 60px; /* Add padding to prevent content from being hidden under fixed navbar */
+        overflow-x: hidden; /* Prevent horizontal scroll */
     }
 
     .nav {
@@ -315,6 +316,7 @@ body {
         z-index: 1001;
         transition: right 0.3s ease;
         box-shadow: -5px 0 15px rgba(0, 0, 0, 0.2);
+        overflow-y: auto; /* Add scroll if content is too long */
     }
     
     .nav-links.active {
@@ -350,6 +352,7 @@ body {
     .overlay.active {
         top: 60px; /* Start below navbar */
         height: calc(100vh - 60px); /* Full height minus navbar */
+        background: rgba(0, 0, 0, 0.9);
     }
 }
 
