@@ -95,17 +95,21 @@
 }
 
 .blog-page {
-    padding: 10px 2rem 4rem;
+    padding: 8rem 2rem 4rem;
     max-width: 1200px;
     margin: 0 auto;
     min-height: 100vh;
+    position: relative;
+    z-index: 1;
 }
 
 .page-title {
-    font-size: 3rem;
-    color: white;
-    margin-bottom: 1rem;
+    font-size: 2.8rem;
+    color: var(--text);
+    margin-bottom: 1.5rem;
     text-align: center;
+    position: relative;
+    z-index: 2;
     position: relative;
     padding-bottom: 1rem;
 }
@@ -152,7 +156,9 @@
     background: rgba(10, 10, 10, 0.8);
     backdrop-filter: blur(10px);
     padding: 2rem 0;
-    margin-top: 4rem;
+    margin-top: 2rem;
+    position: relative;
+    z-index: 1;
     border-top: 1px solid var(--neon-blue);
     position: relative;
     overflow: hidden;
@@ -237,6 +243,10 @@
     color: var(--neon-blue);
     font-size: 1.3rem;
     font-weight: 300;
+    position: relative;
+    z-index: 2;
+    max-width: 700px;
+    margin: 0 auto 3rem;
     letter-spacing: 0.5px;
     line-height: 1.8;
     max-width: 800px;

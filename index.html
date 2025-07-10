@@ -17,45 +17,78 @@
     <!-- Particle Background -->
     <canvas id="particles"></canvas>
 
+    <!-- Skip to main content link for keyboard users -->
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+    
     <!-- Top Navigation Bar -->
-    <div class="top-nav">
-        <div class="theme-switcher">
-            <div class="theme-btn blue" data-theme="default"></div>
-            <div class="theme-btn purple" data-theme="purple"></div>
-            <div class="theme-btn green" data-theme="green"></div>
-            <div class="theme-btn orange" data-theme="orange"></div>
+    <div class="top-nav" role="banner">
+        <div class="theme-switcher" role="group" aria-label="Theme switcher">
+            <button class="theme-btn blue" data-theme="default" aria-label="Default theme">
+                <span class="sr-only">Default theme</span>
+            </button>
+            <button class="theme-btn purple" data-theme="purple" aria-label="Purple theme">
+                <span class="sr-only">Purple theme</span>
+            </button>
+            <button class="theme-btn green" data-theme="green" aria-label="Green theme">
+                <span class="sr-only">Green theme</span>
+            </button>
+            <button class="theme-btn orange" data-theme="orange" aria-label="Orange theme">
+                <span class="sr-only">Orange theme</span>
+            </button>
         </div>
-        <div class="social-links">
-            <a href="https://github.com/dee-mee" title="GitHub">Git</a>
-            <a href="https://www.facebook.com/garfield.llama" title="Facebook">FB</a>
-            <a href="https://x.com/Deemeeb1" title="Twitter">X</a>
+        <div class="social-links" role="list">
+            <a href="https://github.com/dee-mee" title="GitHub profile" aria-label="GitHub (opens in new tab)" target="_blank" rel="noopener noreferrer">
+                <span aria-hidden="true">Git</span>
+                <span class="sr-only">GitHub (opens in new tab)</span>
+            </a>
+            <a href="https://www.facebook.com/garfield.llama" title="Facebook profile" aria-label="Facebook (opens in new tab)" target="_blank" rel="noopener noreferrer">
+                <span aria-hidden="true">FB</span>
+                <span class="sr-only">Facebook (opens in new tab)</span>
+            </a>
+            <a href="https://x.com/Deemeeb1" title="Twitter profile" aria-label="Twitter (opens in new tab)" target="_blank" rel="noopener noreferrer">
+                <span aria-hidden="true">X</span>
+                <span class="sr-only">Twitter (opens in new tab)</span>
+            </a>
         </div>
     </div>
-    <nav class="nav">
+    <nav class="nav" aria-label="Main navigation">
         <div class="nav-content">
-            <div class="logo">Portfolio</div>
-            <div class="nav-links">
-                <a href="#home">Home</a>
+            <a href="#home" class="logo" aria-label="Home">Portfolio</a>
+            <button class="mobile-menu-btn" aria-expanded="false" aria-controls="main-menu" aria-label="Toggle menu">
+                <span class="sr-only">Menu</span>
+                <span class="menu-icon" aria-hidden="true">
+                    <span class="menu-line"></span>
+                    <span class="menu-line"></span>
+                    <span class="menu-line"></span>
+                </span>
+            </button>
+            <div class="nav-links" id="main-menu">
+                <a href="#home" class="active" aria-current="page">Home</a>
                 <a href="#about">About</a>
                 <a href="#projects">Projects</a>
                 <a href="#blog">Blog</a>
                 <a href="#contact">Contact</a>
             </div>
+            <div class="overlay" aria-hidden="true"></div>
         </div>
     </nav>
 
-    <section class="hero" id="home">
+    <main id="main-content" tabindex="-1">
+    <section class="hero" id="home" aria-labelledby="hero-heading">
         <div class="hero-content">
             <div class="hero-text">
-                <p class="greeting">Hello, I'm</p>
-                <h1>Derek <span style="color: var(--neon-blue)">Muriuki</span></h1>
-                <p class="typing-text">
-                    <span class="text"></span>
-                    <span class="cursor">|</span>
+                <p class="greeting" aria-hidden="true">Hello, I'm</p>
+                <h1 id="hero-heading">
+                    <span class="sr-only">Hello, I'm </span>
+                    Derek <span class="highlight">Muriuki</span>
+                </h1>
+                <p class="typing-text" aria-live="polite">
+                    <span class="text" role="text"></span>
+                    <span class="cursor" aria-hidden="true">|</span>
                 </p>
                 <p class="hero-description">
                     I craft exceptional digital experiences through clean code and creative solutions.
-                    Let's build something amazing together!
+                    <span class="line-break">Let's build something amazing together!</span>
                 </p>
                 <div class="hero-buttons">
                     <a href="#contact" class="cta-button">Get In Touch</a>
@@ -791,5 +824,81 @@
             </div>
         </div>
     </footer>
+
+    <script>
+        // Mobile menu functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+            const navLinks = document.querySelector('.nav-links');
+            const overlay = document.querySelector('.overlay');
+            const navItems = document.querySelectorAll('.nav-links a');
+            
+            // Toggle mobile menu
+            function toggleMenu() {
+                const isExpanded = mobileMenuBtn.getAttribute('aria-expanded') === 'true' || false;
+                mobileMenuBtn.setAttribute('aria-expanded', !isExpanded);
+                navLinks.classList.toggle('active');
+                overlay.classList.toggle('active');
+                document.body.style.overflow = isExpanded ? '' : 'hidden';
+            }
+            
+            // Close menu when clicking on a nav item
+            navItems.forEach(item => {
+                item.addEventListener('click', () => {
+                    if (window.innerWidth <= 768) {
+                        toggleMenu();
+                    }
+                });
+            });
+            
+            // Close menu when clicking overlay
+            overlay.addEventListener('click', toggleMenu);
+            
+            // Toggle menu on button click
+            mobileMenuBtn.addEventListener('click', toggleMenu);
+            
+            // Handle window resize
+            function handleResize() {
+                if (window.innerWidth > 768) {
+                    mobileMenuBtn.setAttribute('aria-expanded', 'false');
+                    navLinks.classList.remove('active');
+                    overlay.classList.remove('active');
+                    document.body.style.overflow = '';
+                }
+            }
+            
+            window.addEventListener('resize', handleResize);
+            
+            // Add active class to current section in viewport
+            const sections = document.querySelectorAll('section');
+            
+            function setActiveLink() {
+                let current = '';
+                const scrollPosition = window.scrollY + 200;
+                
+                sections.forEach(section => {
+                    const sectionTop = section.offsetTop;
+                    const sectionHeight = section.offsetHeight;
+                    
+                    if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
+                        current = section.getAttribute('id');
+                    }
+                });
+                
+                navItems.forEach(item => {
+                    item.classList.remove('active');
+                    if (item.getAttribute('href') === `#${current}`) {
+                        item.classList.add('active');
+                        item.setAttribute('aria-current', 'page');
+                    } else {
+                        item.removeAttribute('aria-current');
+                    }
+                });
+            }
+            
+            window.addEventListener('scroll', setActiveLink);
+            document.addEventListener('DOMContentLoaded', setActiveLink);
+        });
+    </script>
 </body>
 </html>

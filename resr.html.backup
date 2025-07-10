@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ResearchNest - Case Study | Derek Muriuki</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        /* Case Study Specific Styles */
+        .case-study {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+            color: var(--text);
+        }
+        
+        .case-header {
+            text-align: center;
+            margin-bottom: 3rem;
+            position: relative;
+            padding-bottom: 2rem;
+        }
+        
+        .case-header::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 3px;
+            background: var(--neon-blue);
+        }
+        
+        .case-hero {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+        
+        .case-hero-image {
+            width: 100%;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease;
+        }
+        
+        .case-hero-image:hover {
+            transform: translateY(-5px);
+        }
+        
+        .case-meta {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin: 1rem 0;
+            flex-wrap: wrap;
+        }
+        
+        .meta-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: rgba(100, 181, 246, 0.1);
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+        }
+        
+        .meta-item i {
+            color: var(--neon-blue);
+        }
+        
+        .case-section {
+            margin-bottom: 3rem;
+            background: rgba(255, 255, 255, 0.03);
+            padding: 2rem;
+            border-radius: 10px;
+            border-left: 3px solid var(--neon-blue);
+        }
+        
+        .case-section h2 {
+            color: var(--neon-blue);
+            margin-top: 0;
+            margin-bottom: 1.5rem;
+            position: relative;
+            padding-bottom: 0.5rem;
+        }
+        
+        .case-section h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50px;
+            height: 2px;
+            background: var(--neon-blue);
+        }
+        
+        .case-image {
+            width: 100%;
+            border-radius: 8px;
+            margin: 1.5rem 0;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .case-features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+        
+        .feature-card {
+            background: rgba(100, 181, 246, 0.05);
+            padding: 1.5rem;
+            border-radius: 8px;
+            border: 1px solid rgba(100, 181, 246, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        .feature-card i {
+            font-size: 1.5rem;
+            color: var(--neon-blue);
+            margin-bottom: 1rem;
+            display: inline-block;
+        }
+        
+        .case-cta {
+            text-align: center;
+            margin: 3rem 0;
+        }
+        
+        .btn-case {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.8rem 2rem;
+            background: var(--neon-blue);
+            color: #fff;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            margin: 0 0.5rem 1rem;
+        }
+        
+        .btn-case:hover {
+            background: transparent;
+            border: 1px solid var(--neon-blue);
+            color: var(--neon-blue);
+            transform: translateY(-2px);
+        }
+        
+        .btn-case i {
+            transition: transform 0.3s ease;
+        }
+        
+        .btn-case:hover i {
+            transform: translateX(5px);
+        }
+        
+        .btn-outline {
+            background: transparent;
+            border: 1px solid var(--neon-blue);
+            color: var(--neon-blue);
+        }
+        
+        .btn-outline:hover {
+            background: var(--neon-blue);
+            color: #fff;
+        }
+        
+        @media (max-width: 768px) {
+            .case-hero {
+                flex-direction: column;
+            }
+            
+            .case-meta {
+                flex-direction: column;
+                align-items: center;
+                gap: 1rem;
+            }
+            
+            .case-section {
+                padding: 1.5rem;
+            }
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #f9f9f9;
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+            color: #333;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 40px auto;
+            padding: 20px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.05);
+        }
+
+        h1, h2, h3 {
+            color: #222;
+        }
+
+        h1 {
+            font-size: 2em;
+            margin-bottom: 10px;
+        }
+
+        h2 {
+            border-bottom: 2px solid #ddd;
+            padding-bottom: 5px;
+            margin-top: 30px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 10px;
+        }
+
+        th, td {
+            padding: 10px;
+            text-align: left;
+            border-bottom: 1px solid #eee;
+        }
+
+        .badge {
+            background: #007acc;
+            color: white;
+            padding: 4px 8px;
+            border-radius: 5px;
+            font-size: 0.85em;
+            margin-right: 5px;
+        }
+
+
+    a {
+      color: #007acc;
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    ul {
+      margin-top: 10px;
+    }
+
+    .footer-links {
+      margin-top: 20px;
+      padding-top: 10px;
+      border-top: 1px solid #eee;
+    }
+
+    .footer-links a {
+      display: inline-block;
+      margin-right: 15px;
+    }
+
+    .keywords span {
+      display: inline-block;
+      background: #eee;
+      padding: 3px 8px;
+      margin: 3px;
+      border-radius: 4px;
+      font-size: 0.85em;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>🎓 Student Research Archive + Analytics</h1>
+    <p><strong>Type:</strong> Full-stack Flask Web App &nbsp;|&nbsp; <strong>Stack:</strong> Flask · HTML · CSS · Bash · Linux</p>
+
+    <h2>Overview</h2>
+    <p>
+      A web-based archive system that allows students to upload PDF research papers. Metadata is automatically extracted (title, authors, keywords), with search and filtering features. Admins can track research trends using a built-in analytics dashboard.
+    </p>
+
+    <h2>Problem</h2>
+    <p>
+      Institutions often lack a searchable, centralized archive of student research. Academic efforts are lost, trends go unnoticed, and paper access becomes tedious.
+    </p>
+
+    <h2>Solution</h2>
+    <ul>
+      <li>Secure student upload of PDF research papers</li>
+      <li>Automatic extraction of metadata and keyword tagging</li>
+      <li>Search and filter by department, year, keywords</li>
+      <li>Admin dashboard showing download trends and topic heatmaps</li>
+    </ul>
+
+    <h2>Key Features</h2>
+    <table>
+      <tr><th>Feature</th><th>Description</th></tr>
+      <tr><td>Authentication</td><td>Separate login for students and admins</td></tr>
+      <tr><td>Metadata Extraction</td><td>Title, authors, keywords pulled from PDFs using Python</td></tr>
+      <tr><td>Virus Scanning</td><td>ClamAV integrated for secure uploads</td></tr>
+      <tr><td>Search/Filter</td><td>Search by department, year, or keywords</td></tr>
+      <tr><td>Analytics</td><td>Admin sees download counts, popular topics, activity by department</td></tr>
+    </table>
+
+    <h2>Tech Stack</h2>
+    <p>
+      <span class="badge">Flask</span>
+      <span class="badge">HTML/CSS</span>
+      <span class="badge">SQLAlchemy</span>
+      <span class="badge">PyMuPDF</span>
+      <span class="badge">RAKE</span>
+      <span class="badge">Bash</span>
+      <span class="badge">Linux</span>
+    </p>
+
+    <h2>Challenges & Solutions</h2>
+    <table>
+      <tr><th>Challenge</th><th>Solution</th></tr>
+      <tr><td>Inconsistent PDF metadata</td><td>Fallback to content parsing using NLP on abstract section</td></tr>
+      <tr><td>Upload security</td><td>Integrated ClamAV scanning in Bash scripts</td></tr>
+      <tr><td>Slow large-file processing</td><td>File size limit + plan to add async in future</td></tr>
+    </table>
+
+    <h2>Results</h2>
+    <ul>
+      <li>Uploads with metadata extraction working at ~85% accuracy</li>
+      <li>Clear admin dashboard with visual trends</li>
+      <li>Secure file uploads with virus scanning</li>
+    </ul>
+
+    <h2>Lessons Learned</h2>
+    <ul>
+      <li>PDF metadata is unreliable – always plan for fallback extraction</li>
+      <li>Flask is powerful but needs more boilerplate than Django</li>
+      <li>Good UX and helpful error messages greatly improve user trust</li>
+    </ul>
+
+    <h2>Future Plans</h2>
+    <ul>
+      <li>PDF preview using PDF.js</li>
+      <li>AI-based paper recommendations</li>
+      <li>Export data to Excel</li>
+    </ul>
+
+    <div class="footer-links">
+      <strong>Links:</strong><br />
+      🔗 <a href="#">GitHub Repo</a>  
+      🌐 <a href="#">Live Demo</a>  
+      📄 <a href="#">Sample PDF Upload</a>  
+    </div>
+  </div>
+</body>
+</html>
