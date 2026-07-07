@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Derek Muriuki</title>
+    <title>Derek Muriuki — Full Stack Developer & DevOps Engineer</title>
+    <meta name="description" content="Portfolio of Derek Muriuki — Full Stack Developer & DevOps Engineer in Nairobi, Kenya. WordPress/Oxygen Builder, Django, FastAPI, Linux administration.">
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="css/blog.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
@@ -37,11 +38,11 @@
             </button>
         </div>
         <div class="social-links" role="list">
-            <a href="https://github.com/dee-mee" title="GitHub profile" aria-label="GitHub (opens in new tab)" target="_blank" rel="noopener noreferrer">
-                <span aria-hidden="true">Git</span>
+            <a href="https://github.com/dee-mee" title="GitHub — dee-mee" aria-label="GitHub (opens in new tab)" target="_blank" rel="noopener noreferrer">
+                <i class="fab fa-github" aria-hidden="true"></i>
                 <span class="sr-only">GitHub (opens in new tab)</span>
             </a>
-            <a href="https://www.facebook.com/garfield.llama" title="Facebook profile" aria-label="Facebook (opens in new tab)" target="_blank" rel="noopener noreferrer">
+            <a href="https://www.facebook.com/Derek.Muruki" title="Facebook profile" aria-label="Facebook (opens in new tab)" target="_blank" rel="noopener noreferrer">
                 <span aria-hidden="true">FB</span>
                 <span class="sr-only">Facebook (opens in new tab)</span>
             </a>
@@ -62,7 +63,9 @@
             <nav class="nav-links" id="main-navigation" aria-hidden="true">
                 <a href="#home" class="nav-link" aria-current="page">Home</a>
                 <a href="#about" class="nav-link">About</a>
+                <a href="#experience" class="nav-link">Experience</a>
                 <a href="#projects" class="nav-link">Projects</a>
+                <a href="#skills" class="nav-link">Skills</a>
                 <a href="#blog" class="nav-link">Blog</a>
                 <a href="#contact" class="nav-link">Contact</a>
             </nav>
@@ -83,35 +86,32 @@
                     <span class="text" role="text"></span>
                     <span class="cursor" aria-hidden="true">|</span>
                 </p>
+                <p class="hero-location"><i class="fas fa-map-marker-alt"></i> Nairobi, Kenya</p>
                 <p class="hero-description">
-                    I craft exceptional digital experiences through clean code and creative solutions.
-                    <span class="line-break">Let's build something amazing together!</span>
+                    Full Stack Developer and DevOps Engineer at ADRES Group, and freelancer.
+                    I build platforms from scratch and keep them running under pressure.
                 </p>
                 <div class="hero-buttons">
-                    <a href="#contact" class="cta-button">Get In Touch</a>
+                    <a href="https://github.com/dee-mee" class="cta-button" target="_blank" rel="noopener noreferrer">
+                        <i class="fab fa-github"></i> GitHub
+                    </a>
                     <a href="#projects" class="cta-button secondary">View My Work</a>
                 </div>
                 <div class="social-links hero-social">
-                    <a href="https://github.com/dee-mee" target="_blank" rel="noopener noreferrer" title="GitHub">
+                    <a href="https://github.com/dee-mee" target="_blank" rel="noopener noreferrer" title="GitHub — dee-mee">
                         <i class="fab fa-github"></i>
                     </a>
-                    <a href="https://www.linkedin.com/" target="_blank" rel="noopener noreferrer" title="LinkedIn">
+                    <a href="https://www.linkedin.com/in/derek-muriuki/" target="_blank" rel="noopener noreferrer" title="LinkedIn">
                         <i class="fab fa-linkedin-in"></i>
                     </a>
                     <a href="https://twitter.com/Deemeeb1" target="_blank" rel="noopener noreferrer" title="Twitter">
                         <i class="fab fa-twitter"></i>
                     </a>
-                    <a href="mailto:your.email@example.com" title="Email">
-                        <i class="fas fa-envelope"></i>
-                    </a>
                 </div>
             </div>
             <div class="hero-image">
                 <div class="hero-avatar">
-                    <!-- You can add your photo here -->
-                    <div class="avatar-placeholder">
-                        <i class="fas fa-user"></i>
-                    </div>
+                    <img src="images/me.jpg" alt="Derek Muriuki">
                 </div>
             </div>
         </div>
@@ -148,8 +148,19 @@
             font-size: 1.1rem;
             line-height: 1.6;
             color: rgba(255, 255, 255, 0.8);
-            margin: 1.5rem 0 2rem;
+            margin: 1rem 0 2rem;
             max-width: 90%;
+        }
+
+        .hero-location {
+            font-size: 1rem;
+            color: rgba(255, 255, 255, 0.6);
+            margin: 0.5rem 0;
+        }
+
+        .hero-location i {
+            color: var(--neon-blue);
+            margin-right: 0.4rem;
         }
         
         .hero-buttons {
@@ -218,16 +229,14 @@
             border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
             background: rgba(0, 243, 255, 0.1);
             border: 2px solid var(--neon-blue);
-            display: flex;
-            justify-content: center;
-            align-items: center;
+            overflow: hidden;
             animation: morph 8s ease-in-out infinite;
         }
-        
-        .avatar-placeholder {
-            font-size: 8rem;
-            color: var(--neon-blue);
-            opacity: 0.5;
+
+        .hero-avatar img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
         }
         
         @keyframes morph {
@@ -296,11 +305,11 @@
             const textElement = document.querySelector('.typing-text .text');
             const cursor = document.querySelector('.cursor');
             const words = [
-                'Full Stack Developer',
-                'Python Programmer',
-                'Web Designer',
-                'Problem Solver',
-                'Tech Enthusiast'
+                'Full Stack Developer & DevOps Engineer',
+                'WordPress / Oxygen Builder Specialist',
+                'Founder of Devlynx',
+                'Python & Django Developer',
+                'Linux & Infrastructure Engineer'
             ];
             let wordIndex = 0;
             let charIndex = 0;
@@ -393,37 +402,85 @@
                 </svg>
             </div>
             <div class="about-content">
-                <p>Hello! I'm a passionate web developer with 2 years of experience in creating modern, responsive websites and applications.
-                     I specialize in back-end development and love bringing creative designs to life.</p>
+                <p>Full Stack Developer and DevOps Engineer at <strong>ADRES Group</strong>, and an independent web developer. BSc in ICT (Second Upper Class Honours, 2025) from Jaramogi Oginga Odinga University.</p>
                 <br>
-                <p>My expertise includes:</p>
+                <p>I specialize in WordPress and Oxygen Builder development paired with real infrastructure and DevOps skills — the person who can build a platform from scratch and keep it running under pressure.</p>
                 <br>
-                <ul>
-                    <li>python & Django</li>
-                    <li>Bash scripting</li>
-                    <li>Frontend development</li>
-                    <li>Responsive Web Development</li>
+                <p>
+                    <a href="https://github.com/dee-mee" target="_blank" rel="noopener noreferrer" class="about-link">
+                        <i class="fab fa-github"></i> github.com/dee-mee
+                    </a>
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <section class="section" id="experience">
+        <h2 class="section-title">Experience</h2>
+        <div class="experience-list">
+            <div class="experience-card">
+                <div class="experience-header">
+                    <div>
+                        <h3>ADRES Group</h3>
+                        <p class="experience-role">Full Stack Developer &amp; DevOps Engineer</p>
+                    </div>
+                </div>
+                <ul class="experience-details">
+                    <li>Lead Developer &amp; Project Manager for <strong>IE Hub</strong> (Inclusive Education Hub for Africa) — a continental eLearning and Community of Practice platform for LM International, including pivoting the stack from Django/React/PostgreSQL/Redis to WordPress/Oxygen Builder/BuddyBoss</li>
+                    <li>Replaced the former ADRES contact as primary client-facing lead for IE Hub, running client discovery meetings directly</li>
+                    <li>Led the <strong>COMESA Competition Commission</strong> site migration from Divi to Oxygen Builder — staging-to-production cutover, database search-replace, plugin configuration, and structured migration of legacy case data into WordPress/ACF</li>
+                    <li>Managed and secured shared cPanel infrastructure — resolved server-wide 503 outages, remediated security incidents, and completed full domain/server migrations</li>
+                    <li>Performance and reliability work on <strong>lvbcom.org</strong> (LVBC) — LiteSpeed Cache, WebP conversion, WP-Cron replacement, and SEO optimization</li>
+                    <li>Built out PRBP (IGAD) site — cookie consent, Events Calendar, Fluent Forms/FluentCRM, Oxygen templating</li>
+                    <li>Completed the IGAD FSI domain migration (igadfsi.com → fsi.igad.int) with DNS coordination across external nameservers</li>
                 </ul>
+                <p class="experience-clients"><strong>Client sites:</strong> COMESA Competition Commission, lvbcom.org, ACTESA, LVBC</p>
+            </div>
+            <div class="experience-card">
+                <div class="experience-header">
+                    <div>
+                        <h3>Freelancing</h3>
+                        <p class="experience-role">Founder / Independent Developer</p>
+                    </div>
+                </div>
+                <ul class="experience-details">
+                    <li>Web development, SEO, design, and Linux administration for independent clients</li>
+                    <li>Completed the Ẹlẹ́wà Art site migration (cPanel → WordPress.com, domain transfer from Squarespace, Google Workspace email DNS preservation)</li>
+                </ul>
+                <p class="experience-clients"><strong>Client sites:</strong> blessedsam.co.ke, waterleaders.co.ke</p>
             </div>
         </div>
     </section>
 
     <section class="section" id="projects">
-        <h2 class="section-title">My Projects</h2>
+        <h2 class="section-title">Projects</h2>
+
+        <h3 class="project-group-title">Client Work</h3>
         <div class="projects">
             <div class="project-card">
                 <div class="project-image">
-                    <img src="images/portfolio.png" alt="Portfolio Website">
+                    <img src="images/comesacompetition.png" alt="COMESA Competition and Consumer Commission">
                 </div>
                 <div class="project-content">
-                    <h3>Portfolio Website</h3>
-                    <p>A responsive portfolio website with modern animations</p>
+                    <h3>COMESA Competition Commission</h3>
+                    <p>Official website for the COMESA Competition and Consumer Commission. Led migration from Divi to Oxygen Builder with legacy case data migration into WordPress/ACF.</p>
                     <div class="project-links">
-                        <a href="https://github.com/dee-mee/portfolio" target="_blank" rel="noopener noreferrer">
-                            <i class="fas fa-code"></i> Code
+                        <a href="https://comesacompetition.org" target="_blank" rel="noopener noreferrer">
+                            <i class="fas fa-external-link-alt"></i> Visit Site
                         </a>
-                        <a href="https://dee-mee.github.io/portfolio" target="_blank" rel="noopener noreferrer">
-                            <i class="fas fa-external-link-alt"></i> Demo
+                    </div>
+                </div>
+            </div>
+            <div class="project-card">
+                <div class="project-image">
+                    <img src="images/webdev.jpeg" alt="LVBC Website">
+                </div>
+                <div class="project-content">
+                    <h3>Lake Victoria Basin Commission</h3>
+                    <p>Performance and reliability work on lvbcom.org — LiteSpeed Cache, WebP conversion, WP-Cron replacement with server cron, and SEO optimization.</p>
+                    <div class="project-links">
+                        <a href="https://lvbcom.org" target="_blank" rel="noopener noreferrer">
+                            <i class="fas fa-external-link-alt"></i> Visit Site
                         </a>
                     </div>
                 </div>
@@ -434,7 +491,7 @@
                 </div>
                 <div class="project-content">
                     <h3>Blessed Sam Website</h3>
-                    <p>A professional website for Blessed Sam, showcasing services and contact information</p>
+                    <p>Professional website for Blessed Sam — services, portfolio, and contact. Built via Devlynx.</p>
                     <div class="project-links">
                         <a href="https://blessedsam.co.ke" target="_blank" rel="noopener noreferrer">
                             <i class="fas fa-external-link-alt"></i> Visit Site
@@ -448,7 +505,7 @@
                 </div>
                 <div class="project-content">
                     <h3>Water Leaders</h3>
-                    <p>Official website for Water Leaders, providing water solutions and services</p>
+                    <p>Official website for Water Leaders, providing water solutions and services across Kenya. Built via Devlynx.</p>
                     <div class="project-links">
                         <a href="https://waterleaders.co.ke" target="_blank" rel="noopener noreferrer">
                             <i class="fas fa-external-link-alt"></i> Visit Site
@@ -456,19 +513,58 @@
                     </div>
                 </div>
             </div>
+        </div>
+
+        <h3 class="project-group-title">In Progress</h3>
+        <div class="ongoing-projects">
+            <div class="ongoing-project">
+                <h3>IE Hub — Inclusive Education Hub for Africa</h3>
+                <p>Continental eLearning and Community of Practice platform for LM International. Stack pivot from Django/React to WordPress/Oxygen Builder/BuddyBoss. Driving toward soft launch tied to the Day of the African Child.</p>
+                <p class="ongoing-progress">Development Progress: 75%</p>
+                <div class="progress-bar" style="width: 75%;"></div>
+            </div>
+        </div>
+
+        <h3 class="project-group-title">Personal Projects</h3>
+        <div class="projects">
             <div class="project-card">
                 <div class="project-image">
-                    <img src="images/project2.png" alt="Linux Setup Script">
+                    <img src="images/python.jpeg" alt="SMWCS IoT Platform">
                 </div>
                 <div class="project-content">
-                    <h3>Linux Setup Script</h3>
-                    <p>A script that automates linux installation for basic applications.</p>
+                    <h3>SMWCS — IoT Waste Management</h3>
+                    <p>Microservices-based platform for Kenya: FastAPI backend, MinIO media storage, React Native (Expo Go) apps for drivers and citizens.</p>
                     <div class="project-links">
-                        <a href="https://github.com/dee-mee/shell-script.git" target="_blank" rel="noopener noreferrer">
+                        <a href="https://github.com/Devlinx-s/SMWCS" target="_blank" rel="noopener noreferrer">
                             <i class="fas fa-code"></i> Code
                         </a>
-                        <a href="https://github.com/dee-mee/shell-script/blob/master/install.sh" target="_blank" rel="noopener noreferrer">
-                            <i class="fas fa-external-link-alt"></i> Demo
+                    </div>
+                </div>
+            </div>
+            <div class="project-card">
+                <div class="project-image">
+                    <img src="images/flask.jpeg" alt="Pesa Tracker">
+                </div>
+                <div class="project-content">
+                    <h3>Pesa Tracker</h3>
+                    <p>Personal finance app with Kenya-specific features including M-PESA statement import and auto-categorization for transactions. Flask/SQLAlchemy.</p>
+                    <div class="project-links">
+                        <a href="https://github.com/dee-mee/Financier" target="_blank" rel="noopener noreferrer">
+                            <i class="fas fa-code"></i> Code
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="project-card">
+                <div class="project-image">
+                    <img src="images/webdev.jpeg" alt="CV Builder">
+                </div>
+                <div class="project-content">
+                    <h3>CV Builder</h3>
+                    <p>Django-based web app for generating ATS-optimized CVs and resumes.</p>
+                    <div class="project-links">
+                        <a href="https://github.com/dee-mee/cv-builder" target="_blank" rel="noopener noreferrer">
+                            <i class="fas fa-code"></i> Code
                         </a>
                     </div>
                 </div>
@@ -481,11 +577,8 @@
                     <h3>ResearchNest</h3>
                     <p>AI-powered research paper management and question extraction system built with Flask and Python.</p>
                     <div class="project-links">
-                        <a href="https://github.com/Devlinx-s/ResearchNest.git" target="_blank" rel="noopener noreferrer">
+                        <a href="https://github.com/Devlinx-s/ResearchNest" target="_blank" rel="noopener noreferrer">
                             <i class="fas fa-code"></i> Code
-                        </a>
-                        <a href="https://github.com/Devlinx-s/ResearchNest.git" target="_blank" rel="noopener noreferrer">
-                            <i class="fas fa-external-link-alt"></i> Demo
                         </a>
                     </div>
                 </div>
@@ -496,82 +589,123 @@
                 </div>
                 <div class="project-content">
                     <h3>Water Billing System</h3>
-                    <p>A water billing system created using Django</p>
+                    <p>A water billing system created using Django with online payment integration.</p>
                     <div class="project-links">
                         <a href="https://github.com/dee-mee/WaterBilling" target="_blank" rel="noopener noreferrer">
                             <i class="fas fa-code"></i> Code
                         </a>
                         <a href="https://waterbilling-r92q.onrender.com/" target="_blank" rel="noopener noreferrer">
-                            <i class="fas fa-external-link-alt"></i> Visit Site
+                            <i class="fas fa-external-link-alt"></i> Demo
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="project-card">
+                <div class="project-image">
+                    <img src="images/project2.png" alt="Linux Setup Script">
+                </div>
+                <div class="project-content">
+                    <h3>Linux Setup Script</h3>
+                    <p>A Bash script that automates Linux installation and configuration for essential development tools.</p>
+                    <div class="project-links">
+                        <a href="https://github.com/dee-mee/shell-script" target="_blank" rel="noopener noreferrer">
+                            <i class="fas fa-code"></i> Code
                         </a>
                     </div>
                 </div>
             </div>
         </div>
-    </section>
 
-    <section class="section" id="ongoing">
-        <h2 class="section-title">Ongoing Projects</h2>
-        <div class="ongoing-projects">
-            <div class="ongoing-project">
-                <h3>School management system</h3>
-                <p>Development Progress: 70%</p>
-                <div class="progress-bar"></div>
+        <h3 class="project-group-title">Creative</h3>
+        <div class="projects">
+            <div class="project-card">
+                <div class="project-image">
+                    <img src="images/uiux.jpeg" alt="Bittersweet">
+                </div>
+                <div class="project-content">
+                    <h3>Bittersweet</h3>
+                    <p>A drama/romance script — a side creative writing project exploring character and narrative.</p>
+                </div>
             </div>
-            <div class="ongoing-project">
-                <h3>Exam query system</h3>
-                <p>Development Progress: 45%</p>
-                <div class="progress-bar"></div>
-            </div>
-            <div class="ongoing-project">
-                <h3>Point of sale system.</h3>
-                <p>Development Progress: 90%</p>
-                <div class="progress-bar"></div>
+            <div class="project-card">
+                <div class="project-image">
+                    <img src="images/project2.png" alt="Mind Hacker">
+                </div>
+                <div class="project-content">
+                    <h3>Mind Hacker</h3>
+                    <p>Retro terminal-style strategy game built in Bash — a creative experiment in CLI game design.</p>
+                </div>
             </div>
         </div>
     </section>
 
-        <!-- New Skills Section -->
         <section class="section" id="skills">
             <h2 class="section-title">Skills</h2>
-            <div class="skills">
-                <div class="skill-item floating">
-                    <div class="skill-level">
-                        <svg width="100" height="100">
-                            <circle cx="50" cy="50" r="45" stroke-dasharray="283" stroke-dashoffset="28.3"/>
-                        </svg>
+            <div class="skill-categories">
+                <div class="skill-category">
+                    <h3>CMS / Frontend</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">WordPress</span>
+                        <span class="skill-tag">Oxygen Builder</span>
+                        <span class="skill-tag">ACF Pro</span>
+                        <span class="skill-tag">Divi</span>
+                        <span class="skill-tag">BuddyBoss</span>
                     </div>
-                    <h3>Frontend</h3>
-                    <p>90%</p>
                 </div>
-                <div class="skill-item floating">
-                    <div class="skill-level">
-                        <svg width="100" height="100">
-                            <circle cx="50" cy="50" r="45" stroke-dasharray="283" stroke-dashoffset="28.3"/>
-                        </svg>
-                    </div>
+                <div class="skill-category">
                     <h3>Backend</h3>
-                    <p>80%</p>
-                </div>
-                <div class="skill-item floating">
-                    <div class="skill-level">
-                        <svg width="100" height="100">
-                            <circle cx="50" cy="50" r="45" stroke-dasharray="283" stroke-dashoffset="28.3"/>
-                        </svg>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Django</span>
+                        <span class="skill-tag">FastAPI</span>
+                        <span class="skill-tag">Flask</span>
+                        <span class="skill-tag">PHP</span>
                     </div>
-                    <h3>linux admin</h3>
-                    <p>90%</p>
                 </div>
-                <div class="skill-item floating">
-                    <div class="skill-level">
-                        <svg width="100" height="100">
-                            <circle cx="50" cy="50" r="45" stroke-dasharray="283" stroke-dashoffset="28.3"/>
-                        </svg>
+                <div class="skill-category">
+                    <h3>Frontend / Mobile</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">React</span>
+                        <span class="skill-tag">React Native (Expo)</span>
                     </div>
-                    <h3>python</h3>
-                    <p>65%</p>
                 </div>
-                <!-- More skill items -->
+                <div class="skill-category">
+                    <h3>DevOps / Infrastructure</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Linux Administration</span>
+                        <span class="skill-tag">cPanel / Plesk</span>
+                        <span class="skill-tag">DNS Management</span>
+                        <span class="skill-tag">LiteSpeed Cache</span>
+                        <span class="skill-tag">Server Cron</span>
+                        <span class="skill-tag">Security Remediation</span>
+                    </div>
+                </div>
+                <div class="skill-category">
+                    <h3>Databases</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">MySQL</span>
+                        <span class="skill-tag">PostgreSQL</span>
+                        <span class="skill-tag">phpMyAdmin</span>
+                    </div>
+                </div>
+                <div class="skill-category">
+                    <h3>Other</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">SEO</span>
+                        <span class="skill-tag">WP Rocket</span>
+                        <span class="skill-tag">Fluent Forms</span>
+                        <span class="skill-tag">FluentCRM</span>
+                        <span class="skill-tag">Bash Scripting</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section" id="education">
+            <h2 class="section-title">Education</h2>
+            <div class="education-card">
+                <h3>BSc Information Communication Technology</h3>
+                <p class="education-honours">Second Upper Class Honours — 2025</p>
+                <p class="education-school">Jaramogi Oginga Odinga University of Science and Technology</p>
             </div>
         </section>
     
@@ -849,9 +983,9 @@
 
     <footer class="footer">
         <div class="footer-content">
-            <p>&copy; 2025 Derek Muriuki. All rights reserved.</p>
+            <p>&copy; 2026 Derek Muriuki. All rights reserved.</p>
             <div class="social-links">
-                <a href="https://github.com/dee-mee" target="_blank" rel="noopener noreferrer" title="GitHub">
+                <a href="https://github.com/dee-mee" target="_blank" rel="noopener noreferrer" title="GitHub — dee-mee">
                     <i class="fab fa-github"></i>
                 </a>
                 <a href="https://x.com/Deemeeb1" target="_blank" rel="noopener noreferrer" title="Twitter">
@@ -859,9 +993,6 @@
                 </a>
                 <a href="https://www.linkedin.com/in/derek-muriuki/" target="_blank" rel="noopener noreferrer" title="LinkedIn">
                     <i class="fab fa-linkedin-in"></i>
-                </a>
-                <a href="mailto:your.email@example.com" title="Email">
-                    <i class="fas fa-envelope"></i>
                 </a>
             </div>
         </div>

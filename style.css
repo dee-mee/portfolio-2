@@ -900,6 +900,7 @@ body {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 2rem;
+    margin-bottom: 3rem;
 }
 
 .ongoing-project {
@@ -908,6 +909,13 @@ body {
     padding: 1.5rem;
     position: relative;
     overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.ongoing-progress {
+    color: var(--neon-blue);
+    font-size: 0.9rem;
+    margin-top: 0.75rem;
 }
 
 .progress-bar {
@@ -916,13 +924,156 @@ body {
     left: 0;
     height: 4px;
     background: var(--accent);
-    animation: progress 3s ease-in-out infinite;
 }
 
-@keyframes progress {
-    0% { width: 0; }
-    50% { width: 70%; }
-    100% { width: 100%; }
+.project-group-title {
+    font-size: 1.4rem;
+    color: var(--neon-blue);
+    margin: 2.5rem 0 1.5rem;
+    padding-left: 0.75rem;
+    border-left: 3px solid var(--accent);
+}
+
+.project-group-title:first-of-type {
+    margin-top: 0;
+}
+
+/* About Link */
+.about-link {
+    color: var(--neon-blue);
+    text-decoration: none;
+    transition: opacity 0.3s ease;
+}
+
+.about-link:hover {
+    opacity: 0.8;
+}
+
+/* Experience Section */
+.experience-list {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.experience-card {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 15px;
+    padding: 2rem;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.experience-card:hover {
+    transform: translateY(-4px);
+}
+
+.experience-header h3 {
+    font-size: 1.5rem;
+    color: var(--neon-blue);
+    margin-bottom: 0.25rem;
+}
+
+.experience-role {
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 1rem;
+    margin-bottom: 1rem;
+}
+
+.experience-details {
+    list-style: none;
+    padding: 0;
+}
+
+.experience-details li {
+    position: relative;
+    padding-left: 1.25rem;
+    margin-bottom: 0.75rem;
+    line-height: 1.6;
+    color: rgba(255, 255, 255, 0.85);
+}
+
+.experience-details li::before {
+    content: '▸';
+    position: absolute;
+    left: 0;
+    color: var(--neon-blue);
+}
+
+.experience-clients {
+    margin-top: 1rem;
+    padding-top: 1rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    font-size: 0.95rem;
+    color: rgba(255, 255, 255, 0.7);
+}
+
+/* Skill Categories */
+.skill-categories {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+}
+
+.skill-category {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 15px;
+    padding: 1.5rem;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.skill-category h3 {
+    font-size: 1.1rem;
+    color: var(--neon-blue);
+    margin-bottom: 1rem;
+}
+
+.skill-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+.skill-tag {
+    background: rgba(0, 243, 255, 0.1);
+    color: var(--text);
+    padding: 0.35rem 0.85rem;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    border: 1px solid rgba(0, 243, 255, 0.3);
+    transition: all 0.3s ease;
+}
+
+.skill-tag:hover {
+    background: rgba(0, 243, 255, 0.2);
+    border-color: var(--neon-blue);
+}
+
+/* Education Section */
+.education-card {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 15px;
+    padding: 2rem;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    max-width: 700px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.education-card h3 {
+    font-size: 1.4rem;
+    color: var(--neon-blue);
+    margin-bottom: 0.5rem;
+}
+
+.education-honours {
+    font-size: 1.1rem;
+    color: var(--accent);
+    margin-bottom: 0.5rem;
+}
+
+.education-school {
+    color: rgba(255, 255, 255, 0.7);
 }
 
 /* Reviews Section */
