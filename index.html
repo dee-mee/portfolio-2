@@ -109,49 +109,104 @@
             <div class="section__foot"><a href="about.html" class="btn magnetic" data-reveal><span>More about me →</span></a></div>
         </section>
 
+        <!-- SERVICES -->
+        <section class="section services" data-scene="aside">
+            <div class="services__head">
+                <p class="label section__label">(02) — What I do</p>
+                <h2 class="heading" data-reveal>Build it, ship it,<br><em>keep it running</em></h2>
+                <p class="services__intro" data-reveal>Most projects need more than a website. I take platforms from the first client meeting to a stable production server — and keep looking after them once they're live.</p>
+            </div>
+            <div class="services__grid">
+                <article class="skill service" data-reveal>
+                    <span class="service__num label">01</span>
+                    <h3>Platforms &amp; web apps</h3>
+                    <p>Custom PHP/MySQL, Django and FastAPI backends, and WordPress with Oxygen Builder and ACF — CMSs, member areas, forums and dashboards.</p>
+                    <span class="label service__eg">e.g. IE Hub for Africa, COMESA</span>
+                </article>
+                <article class="skill service" data-reveal>
+                    <span class="service__num label">02</span>
+                    <h3>Payments &amp; integrations</h3>
+                    <p>M-Pesa Daraja C2B with automatic bill reconciliation, SMS alerts, email and CRM flows (Fluent Forms, FluentCRM), and REST APIs for mobile clients.</p>
+                    <span class="label service__eg">e.g. Timaji Water</span>
+                </article>
+                <article class="skill service" data-reveal>
+                    <span class="service__num label">03</span>
+                    <h3>Infrastructure &amp; DevOps</h3>
+                    <p>Linux and cPanel/Plesk servers, domain and server migrations, DNS, security incident remediation, caching and performance tuning.</p>
+                    <span class="label service__eg">e.g. LVBC, IGAD FSI migration</span>
+                </article>
+                <article class="skill service" data-reveal>
+                    <span class="service__num label">04</span>
+                    <h3>Mobile field apps</h3>
+                    <p>React Native (Expo) apps for staff in the field — camera and on-device OCR, QR lookup, GPS capture — talking to the same backend as the dashboard.</p>
+                    <span class="label service__eg">e.g. Timaji meter reader, SMWCS</span>
+                </article>
+            </div>
+        </section>
+
+        <!-- ORGANISATIONS -->
+        <section class="orgs" aria-label="Organisations I have built for">
+            <p class="label">Platforms built, migrated or maintained for</p>
+            <ul class="orgs__list">
+                <li>LM International</li><li>COMESA Competition Commission</li><li>Lake Victoria Basin Commission</li><li>IGAD</li><li>ACTESA</li><li>Timaji Water</li><li>Water Leaders</li>
+            </ul>
+        </section>
+
+        <!-- PROCESS -->
+        <section class="section process" data-scene="contactPage">
+            <p class="label section__label">(03) — How I work</p>
+            <h2 class="heading" data-reveal>Four steps,<br><em>no surprises</em></h2>
+            <ol class="process__list">
+                <li class="step" data-reveal><span class="step__num">01</span><h3>Discover</h3><p>I run the discovery meetings myself — goals, users, content, and what already exists that we can keep.</p></li>
+                <li class="step" data-reveal><span class="step__num">02</span><h3>Build</h3><p>On a staging copy first, with the stack chosen to suit the client and the team who will run it.</p></li>
+                <li class="step" data-reveal><span class="step__num">03</span><h3>Launch</h3><p>Planned staging-to-production cutovers: data migration, database search-replace, and DNS and email preserved.</p></li>
+                <li class="step" data-reveal><span class="step__num">04</span><h3>Keep it running</h3><p>Security fixes, outages, caching and performance work after go-live — the part most projects skip.</p></li>
+            </ol>
+        </section>
+
         <!-- CLIENT WORK: pinned horizontal gallery on desktop -->
         <section class="work" id="work" data-scene="work">
             <div class="work__pin">
                 <div class="work__intro">
-                    <p class="label section__label">(02) — Selected work</p>
-                    <h2 class="heading">Client<br><em>work</em></h2>
+                    <p class="label section__label">(04) — Selected work</p>
+                    <h2 class="heading">Featured<br><em>platforms</em></h2>
                     <p class="work__hint label">Drag the page — it scrolls sideways →</p>
                 </div>
                 <div class="work__track">
+                    <a class="card" href="https://iehubforafrica.org" target="_blank" rel="noopener noreferrer" data-cursor="Visit">
+                        <div class="card__media"><img src="images/iehub.jpg" alt="Inclusive Education Hub for Africa website" loading="lazy"></div>
+                        <div class="card__body">
+                            <span class="label">01 · ADRES Group · Lead developer &amp; PM</span>
+                            <h3>Inclusive Education Hub for Africa</h3>
+                            <p>Continental platform for LM International — a public site in six languages, a custom CMS, and a members forum with threads, mentions, direct messages and moderation.</p>
+                        </div>
+                    </a>
+                    <a class="card" href="https://timaji.co.ke" target="_blank" rel="noopener noreferrer" data-cursor="Visit">
+                        <div class="card__media"><img src="images/timaji.jpg" alt="Timaji water utility platform website" loading="lazy"></div>
+                        <div class="card__body">
+                            <span class="label">02 · Product · Django / M-Pesa / React Native</span>
+                            <h3>Timaji Water</h3>
+                            <p>Automated water billing: meter readings become bills, M-Pesa Paybill payments reconcile against them automatically, and field apps handle OCR meter reading and customer sign-up.</p>
+                        </div>
+                    </a>
                     <a class="card" href="https://comesacompetition.org" target="_blank" rel="noopener noreferrer" data-cursor="Visit">
                         <div class="card__media"><img src="images/comesacompetition.png" alt="COMESA Competition and Consumer Commission website" loading="lazy"></div>
                         <div class="card__body">
-                            <span class="label">01 · WordPress / ACF migration</span>
+                            <span class="label">03 · ADRES Group · WordPress / ACF migration</span>
                             <h3>COMESA Competition Commission</h3>
                             <p>Led migration from Divi to Oxygen Builder with legacy case data migrated into WordPress/ACF.</p>
-                        </div>
-                    </a>
-                    <a class="card" href="https://lvbcom.org" target="_blank" rel="noopener noreferrer" data-cursor="Visit">
-                        <div class="card__media card__media--type"><span>lvbcom<em>.org</em></span></div>
-                        <div class="card__body">
-                            <span class="label">02 · Performance &amp; SEO</span>
-                            <h3>Lake Victoria Basin Commission</h3>
-                            <p>LiteSpeed Cache, WebP conversion, WP-Cron replaced with server cron, and SEO optimisation.</p>
-                        </div>
-                    </a>
-                    <a class="card" href="https://blessedsam.co.ke" target="_blank" rel="noopener noreferrer" data-cursor="Visit">
-                        <div class="card__media"><img src="images/blessedsam.png" alt="Blessed Sam website" loading="lazy"></div>
-                        <div class="card__body">
-                            <span class="label">03 · Design &amp; build</span>
-                            <h3>Blessed Sam</h3>
-                            <p>Professional website — services, portfolio, and contact. Built via Devlynx.</p>
                         </div>
                     </a>
                     <a class="card" href="https://waterleaders.co.ke" target="_blank" rel="noopener noreferrer" data-cursor="Visit">
                         <div class="card__media"><img src="images/waterkleaders.png" alt="Water Leaders website" loading="lazy"></div>
                         <div class="card__body">
-                            <span class="label">04 · Design &amp; build</span>
+                            <span class="label">04 · Freelance · Design &amp; build</span>
                             <h3>Water Leaders</h3>
-                            <p>Water solutions and services across Kenya. Built via Devlynx.</p>
+                            <p>Website for a water solutions and drilling company serving clients across Kenya.</p>
                         </div>
                     </a>
                     <a class="card card--more" href="work.html" data-cursor="All work">
-                        <span class="label">+ IE Hub, SMWCS, Pesa Tracker &amp; more</span>
+                        <span class="label">+ SMWCS, Pesa Tracker, ResearchNest &amp; more</span>
                         <div><h3>See all<br><em>work</em></h3><span class="prow__arrow">→</span></div>
                     </a>
                 </div>
