@@ -3,898 +3,172 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ResearchNest - Case Study | Derek Muriuki</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <style>
-        /* Case Study Specific Styles */
-        .case-study {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 4rem 2rem;
-            color: var(--text);
-            background: rgba(10, 15, 30, 0.8);
-            backdrop-filter: blur(10px);
-            border-radius: 15px;
-            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
-            margin-top: 2rem;
-            margin-bottom: 2rem;
+    <title>ResearchNest — Case Study | Derek Muriuki</title>
+    <meta name="description" content="Case study: ResearchNest, an AI-powered research paper management and question extraction system built with Flask.">
+    <meta name="theme-color" content="#07080a">
+    <script>try{if(sessionStorage.getItem('dm-visited'))document.documentElement.classList.add('is-return')}catch(e){}</script>
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%2307080a'/%3E%3Ctext x='50%25' y='56%25' font-family='Arial' font-weight='700' font-size='30' fill='%23f2f1ec' text-anchor='middle' dominant-baseline='middle'%3EDM%3C/text%3E%3Ccircle cx='52' cy='44' r='4' fill='%237df9ff'/%3E%3C/svg%3E">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter+Tight:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <script type="importmap">
+    {
+        "imports": {
+            "three": "https://cdn.jsdelivr.net/npm/three@0.169.0/build/three.module.js",
+            "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.169.0/examples/jsm/"
         }
-        
-        .case-header {
-            text-align: center;
-            margin-bottom: 3rem;
-            padding-bottom: 2rem;
-            position: relative;
-        }
-        
-        .case-header::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 100px;
-            height: 3px;
-            background: var(--neon-blue);
-            border-radius: 2px;
-        }
-        
-        .case-header h1 {
-            font-size: 3rem;
-            margin-bottom: 1rem;
-            color: var(--neon-blue);
-            text-transform: uppercase;
-            letter-spacing: 2px;
-        }
-        
-        .case-header .subtitle {
-            font-size: 1.3rem;
-            color: var(--text-light);
-            margin-bottom: 2rem;
-            font-weight: 300;
-        }
-        
-        .case-meta {
-            display: flex;
-            justify-content: center;
-            gap: 1.5rem;
-            margin: 2rem 0;
-            flex-wrap: wrap;
-        }
-        
-        .meta-item {
-            display: flex;
-            align-items: center;
-            gap: 0.7rem;
-            background: rgba(100, 181, 246, 0.1);
-            padding: 0.7rem 1.5rem;
-            border-radius: 50px;
-            backdrop-filter: blur(5px);
-            border: 1px solid rgba(100, 181, 246, 0.2);
-            transition: all 0.3s ease;
-            font-size: 0.9rem;
-        }
-        
-        .meta-item i {
-            color: var(--neon-blue);
-            font-size: 1.1rem;
-        }
-        
-        .meta-item:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(0, 247, 255, 0.1);
-        }
-        
-        .case-hero {
-            width: 100%;
-            margin: 3rem 0 5rem;
-            border-radius: 12px;
-            overflow: hidden;
-            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
-            border: 1px solid rgba(100, 181, 246, 0.15);
-            transition: all 0.3s ease;
-        }
-        
-        .case-hero:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
-        }
-        
-        .case-hero-image {
-            width: 100%;
-            height: auto;
-            display: block;
-            transition: transform 0.5s ease;
-        }
-        
-        .case-hero:hover .case-hero-image {
-            transform: scale(1.02);
-        }
-        
-        
-        /* Remove duplicate .case-hero-image styles */
-        
-        .case-section {
-            margin-bottom: 4rem;
-            padding: 2.5rem;
-            background: rgba(15, 20, 40, 0.5);
-            border-radius: 12px;
-            border-left: 4px solid var(--neon-blue);
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-            transition: all 0.3s ease;
-        }
-        
-        .case-section:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
-        }
-        
-        .case-section h2 {
-            color: var(--neon-blue);
-            font-size: 2.2rem;
-            margin: 0 0 2rem 0;
-            padding-bottom: 1rem;
-            position: relative;
-            font-weight: 600;
-            letter-spacing: 0.5px;
-        }
-        
-        .case-section h2::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 60px;
-            height: 3px;
-            background: var(--neon-blue);
-            border-radius: 2px;
-            box-shadow: 0 0 10px var(--neon-blue);
-        }
-        
-        .case-section h3 {
-            color: #fff;
-            font-size: 1.5rem;
-            margin: 2.5rem 0 1.2rem;
-            font-weight: 500;
-        }
-        
-        .case-section p, 
-        .case-section li {
-            line-height: 1.8;
-            margin-bottom: 1.2rem;
-            color: #d1d5db;
-            font-size: 1.05rem;
-        }
-        
-        .case-section ul, 
-        .case-section ol {
-            padding-left: 1.8rem;
-            margin: 1.8rem 0;
-        }
-        
-        .case-section li {
-            margin-bottom: 0.8rem;
-            position: relative;
-        }
-        
-        .case-section ul li::before {
-            content: '•';
-            color: var(--neon-blue);
-            font-weight: bold;
-            display: inline-block;
-            width: 1em;
-            margin-left: -1em;
-        }
-        
-        .case-image {
-            width: 100%;
-            border-radius: 12px;
-            margin: 2rem 0;
-            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
-            border: 1px solid rgba(0, 247, 255, 0.15);
-            transition: transform 0.5s ease, box-shadow 0.5s ease;
-        }
-        
-        .case-image:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
-        }
-        
-        .case-features {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 2rem;
-            margin: 3rem 0;
-        }
-        
-        .feature-card {
-            background: rgba(0, 0, 0, 0.3);
-            padding: 2rem;
-            border-radius: 12px;
-            border: 1px solid rgba(0, 247, 255, 0.1);
-            transition: all 0.4s ease;
-            backdrop-filter: blur(5px);
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .feature-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(135deg, rgba(0, 247, 255, 0.1) 0%, transparent 50%);
-            z-index: -1;
-            opacity: 0;
-            transition: opacity 0.3s ease;
-        }
-        
-        .feature-card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
-            border-color: var(--neon-blue);
-            background: rgba(0, 0, 0, 0.4);
-        }
-        
-        .feature-card:hover::before {
-            opacity: 1;
-        }
-        
-        .feature-card i {
-            font-size: 2.2rem;
-            color: var(--neon-blue);
-            margin-bottom: 1.5rem;
-            display: inline-block;
-            text-shadow: 0 0 10px rgba(0, 247, 255, 0.5);
-        }
-        
-        .feature-card h3 {
-            color: #fff;
-            margin: 1rem 0 1.2rem;
-            font-size: 1.3rem;
-            font-weight: 500;
-        }
-        
-        .feature-card p {
-            color: #d1d5db;
-            font-size: 1rem;
-            line-height: 1.7;
-            margin: 0;
-        }
-        
-        .case-cta {
-            text-align: center;
-            margin: 6rem 0 4rem;
-            padding: 4rem 2rem;
-            background: linear-gradient(135deg, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.5));
-            border-radius: 15px;
-            border: 1px solid rgba(0, 247, 255, 0.2);
-            position: relative;
-            overflow: hidden;
-            backdrop-filter: blur(5px);
-        }
-        
-        .case-cta::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: radial-gradient(circle, rgba(0, 247, 255, 0.05) 0%, transparent 70%);
-            z-index: -1;
-            animation: rotate 20s linear infinite;
-        }
-        
-        @keyframes rotate {
-            from { transform: rotate(0deg); }
-            to { transform: rotate(360deg); }
-        }
-        
-        .case-cta h2 {
-            margin-top: 0;
-            margin-bottom: 1.5rem;
-            font-size: 2.2rem;
-            color: #fff;
-            text-shadow: 0 0 10px rgba(0, 247, 255, 0.3);
-        }
-        
-        .case-cta p {
-            max-width: 700px;
-            margin-left: auto;
-            margin-right: auto;
-            margin-bottom: 2.5rem;
-            font-size: 1.1rem;
-            color: #d1d5db;
-        }
-        
-        .btn-case {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            gap: 0.8rem;
-            background: var(--neon-blue);
-            color: #0a192f;
-            padding: 1rem 2.2rem;
-            border-radius: 50px;
-            font-weight: 600;
-            text-decoration: none;
-            transition: all 0.4s ease;
-            border: 2px solid var(--neon-blue);
-            margin: 0.5rem;
-            font-size: 1.05rem;
-            letter-spacing: 0.5px;
-            position: relative;
-            overflow: hidden;
-            z-index: 1;
-            box-shadow: 0 5px 15px rgba(0, 247, 255, 0.3);
-        }
-        
-        .btn-case::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(135deg, rgba(255, 255, 255, 0.2) 0%, transparent 100%);
-            z-index: -1;
-            opacity: 0;
-            transition: opacity 0.3s ease;
-        }
-        
-        .btn-case:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 8px 20px rgba(0, 247, 255, 0.4);
-            color: #0a192f;
-        }
-        
-        .btn-case:hover::before {
-            opacity: 1;
-        }
-        
-        .btn-case i {
-            font-size: 1.2rem;
-            transition: transform 0.3s ease;
-        }
-        
-        .btn-case:hover i {
-            transform: translateX(3px);
-        }
-        
-        .btn-outline {
-            background: transparent;
-            color: var(--neon-blue);
-            border-color: var(--neon-blue);
-        }
-        
-        .btn-outline:hover {
-            background: var(--neon-blue);
-            color: #0a192f;
-            transform: translateY(-3px);
-            box-shadow: 0 8px 20px rgba(0, 247, 255, 0.4);
-        }
-        
-        .challenge {
-            background: rgba(0, 0, 0, 0.3);
-            padding: 2rem;
-            border-radius: 10px;
-            margin-bottom: 2rem;
-            border-left: 4px solid var(--neon-blue);
-            transition: all 0.3s ease;
-            backdrop-filter: blur(5px);
-        }
-        
-        .challenge:hover {
-            transform: translateX(5px);
-            box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.2);
-        }
-        
-        .challenge h3 {
-            color: var(--neon-blue);
-            margin-top: 0;
-            margin-bottom: 1rem;
-            font-size: 1.4rem;
-        }
-        
-        .results {
-            display: flex;
-            justify-content: space-around;
-            flex-wrap: wrap;
-            gap: 2.5rem;
-            margin: 4rem 0;
-            padding: 2rem 0;
-            position: relative;
-        }
-        
-        .results::before,
-        .results::after {
-            content: '';
-            position: absolute;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 80%;
-            height: 1px;
-            background: linear-gradient(90deg, transparent, rgba(0, 247, 255, 0.3), transparent);
-        }
-        
-        .results::before { top: 0; }
-        .results::after { bottom: 0; }
-        
-        .result-metric {
-            text-align: center;
-            flex: 1;
-            min-width: 150px;
-            padding: 1.5rem 1rem;
-            position: relative;
-            z-index: 1;
-        }
-        
-        .metric-value {
-            font-size: 3rem;
-            font-weight: 700;
-            color: var(--neon-blue);
-            margin-bottom: 0.5rem;
-            text-shadow: 0 0 15px rgba(0, 247, 255, 0.5);
-            font-family: 'Poppins', sans-serif;
-        }
-        
-        .metric-label {
-            color: #d1d5db;
-            font-size: 1rem;
-            letter-spacing: 0.5px;
-        }
-        
-        /* Responsive Styles */
-        @media (max-width: 1024px) {
-            .case-study {
-                padding: 3rem 1.5rem;
-                margin: 1rem;
-            }
-            
-            .case-section {
-                padding: 1.8rem;
-            }
-            
-            .case-features {
-                grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-                gap: 1.5rem;
-            }
-        }
-        
-        @media (max-width: 768px) {
-            .case-header h1 {
-                font-size: 2.5rem;
-            }
-            
-            .case-header .subtitle {
-                font-size: 1.1rem;
-            }
-            
-            .case-meta {
-                flex-direction: column;
-                align-items: center;
-                gap: 1rem;
-            }
-            
-            .meta-item {
-                width: 100%;
-                justify-content: center;
-                padding: 0.8rem 1rem;
-            }
-            
-            .case-section h2 {
-                font-size: 1.8rem;
-            }
-            
-            .case-section h3 {
-                font-size: 1.3rem;
-            }
-            
-            .results {
-                flex-direction: column;
-                align-items: center;
-                gap: 1.5rem;
-            }
-            
-            .result-metric {
-                min-width: 200px;
-                padding: 1rem;
-            }
-            
-            .case-cta {
-                padding: 3rem 1.5rem;
-                margin: 4rem 0;
-            }
-            
-            .case-cta h2 {
-                font-size: 1.8rem;
-            }
-        }
-        
-        @media (max-width: 480px) {
-            .case-header h1 {
-                font-size: 2rem;
-            }
-            
-            .case-header .subtitle {
-                font-size: 1rem;
-            }
-            
-            .case-section {
-                padding: 1.5rem;
-            }
-            
-            .case-section h2 {
-                font-size: 1.6rem;
-                margin-bottom: 1.5rem;
-            }
-            
-            .case-features {
-                grid-template-columns: 1fr;
-                gap: 1.2rem;
-            }
-            
-            .feature-card {
-                padding: 1.5rem;
-            }
-            
-            .btn-case {
-                width: 100%;
-                margin: 0.5rem 0;
-                padding: 0.9rem;
-            }
-            
-            .case-cta {
-                padding: 2.5rem 1.2rem;
-            }
-            
-            .case-cta h2 {
-                font-size: 1.6rem;
-            }
-            
-            .case-cta p {
-                font-size: 1rem;
-            }
-        }
-        
-        .container {
-            max-width: 900px;
-            margin: 40px auto;
-            padding: 20px;
-            background: #0a192f;
-            border-radius: 10px;
-            box-shadow: 0 0 10px rgba(0,0,0,0.05);
-        }
-        
-        h1, h2, h3 {
-            color: #222;
-        }
-
-        h1 {
-            font-size: 2em;
-            margin-bottom: 10px;
-        }
-
-        h2 {
-            border-bottom: 2px solid #ddd;
-            padding-bottom: 5px;
-            margin-top: 30px;
-        }
-
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            margin-top: 10px;
-        }
-
-        th, td {
-            padding: 10px;
-            text-align: left;
-            border-bottom: 1px solid #eee;
-        }
-
-        .badge {
-            background: #007acc;
-            color: white;
-            padding: 4px 8px;
-            border-radius: 5px;
-            font-size: 0.85em;
-            margin-right: 5px;
-        }
-
-
-    a {
-      color: #007acc;
-      text-decoration: none;
     }
-
-    a:hover {
-      text-decoration: underline;
-    }
-
-    ul {
-      margin-top: 10px;
-    }
-
-    .footer-links {
-      margin-top: 20px;
-      padding-top: 10px;
-      border-top: 1px solid #eee;
-    }
-
-    .footer-links a {
-      display: inline-block;
-      margin-right: 15px;
-    }
-
-    .keywords span {
-      display: inline-block;
-      background: #eee;
-      padding: 3px 8px;
-      margin: 3px;
-      border-radius: 4px;
-      font-size: 0.85em;
-    }
-  </style>
+    </script>
 </head>
-<body>
-    <!-- Loading Overlay -->
-    <div class="loading-overlay">
-        <div class="loading-spinner"></div>
+<body class="is-loading">
+    <a href="#main" class="skip-link">Skip to main content</a>
+
+    <!-- First visit in a session: counting loader. After that: curtain wipe between pages. -->
+    <div class="loader" aria-hidden="true">
+        <div class="loader__inner">
+            <span class="loader__name">Derek Muriuki</span>
+            <span class="loader__count"><span class="js-count">0</span>%</span>
+        </div>
+        <div class="loader__bar"><span></span></div>
     </div>
-    
-    <!-- Particle Background -->
-    <canvas id="particles"></canvas>
+    <div class="curtain" aria-hidden="true"><span>DM<i>.</i></span></div>
 
-    <!-- Skip to main content link for keyboard users -->
-    <a href="#main-content" class="skip-link">Skip to main content</a>
-    
-    <!-- Top Navigation Bar -->
-    <div class="top-nav">
-        <div class="theme-switcher" role="group" aria-label="Theme switcher">
-            <button class="theme-btn blue" data-theme="default" aria-label="Default theme">
-                <span class="sr-only">Default</span>
-            </button>
-            <button class="theme-btn purple" data-theme="purple" aria-label="Purple theme">
-                <span class="sr-only">Purple</span>
-            </button>
-            <button class="theme-btn green" data-theme="green" aria-label="Green theme">
-                <span class="sr-only">Green</span>
-            </button>
-            <button class="theme-btn orange" data-theme="orange" aria-label="Orange theme">
-                <span class="sr-only">Orange</span>
-            </button>
-        </div>
-        <div class="social-links">
-            <a href="https://github.com/dee-mee" target="_blank" rel="noopener noreferrer" aria-label="GitHub (opens in new tab)">
-                <i class="fab fa-github"></i>
-            </a>
-            <a href="https://www.facebook.com/garfield.llama" target="_blank" rel="noopener noreferrer" aria-label="Facebook (opens in new tab)">
-                <i class="fab fa-facebook"></i>
-            </a>
-            <a href="https://x.com/Deemeeb1" target="_blank" rel="noopener noreferrer" aria-label="Twitter (opens in new tab)">
-                <i class="fab fa-twitter"></i>
-            </a>
-        </div>
-    </div>
-    
-    <nav class="nav" role="navigation" aria-label="Main navigation">
-        <div class="nav-content">
-            <a href="index.html" class="logo" aria-label="Home">Derek</a>
-            <button class="mobile-menu-btn" aria-expanded="false" aria-controls="main-nav" aria-label="Toggle navigation menu">
-                <span class="menu-icon"></span>
-                <span class="sr-only">Menu</span>
-            </button>
-            <div class="nav-links" id="main-nav">
-                <a href="index.html#home">Home</a>
-                <a href="index.html#about">About</a>
-                <a href="index.html#projects">Projects</a>
-                <a href="blog.html" aria-current="page">Blog</a>
-                <a href="index.html#contact">Contact</a>
-            </div>
-            <div class="overlay" aria-hidden="true"></div>
-        </div>
-    </nav>
+    <!-- 3D scene sits behind everything -->
+    <canvas class="webgl" aria-hidden="true"></canvas>
+    <div class="grain" aria-hidden="true"></div>
 
-    <main id="main-content" tabindex="-1" class="case-study">
-        <header class="case-header" aria-labelledby="case-title">
-            <h1>ResearchNest</h1>
-            <p class="subtitle">AI-powered research paper management and question extraction system</p>
-            
-            <div class="case-meta">
-                <div class="meta-item">
-                    <i class="fas fa-calendar-alt"></i>
-                    <span>June 2024</span>
-                </div>
-                <div class="meta-item">
-                    <i class="fas fa-tags"></i>
-                    <span>Flask, Python, AI, NLP</span>
-                </div>
-                <div class="meta-item">
-                    <i class="fas fa-code-branch"></i>
-                    <span>Team Project</span>
-                </div>
-            </div>
-        </header>
+    <div class="cursor" aria-hidden="true"><span class="cursor__dot"></span><span class="cursor__ring"><span class="cursor__label"></span></span></div>
 
-        <div class="case-hero">
-            <img src="images/researchnest.png" alt="ResearchNest Dashboard" class="case-hero-image">
-        </div>
+    <header class="nav">
+        <a href="index.html" class="nav__logo" aria-label="Derek Muriuki — home">DM<span>.</span></a>
+        <nav class="nav__links" id="nav-links" aria-label="Main navigation">
+            <a href="about.html">About</a>
+            <a href="work.html">Work</a>
+            <a href="blog.html" aria-current="page">Blog</a>
+            <a href="contact.html">Contact</a>
+        </nav>
+        <a href="contact.html" class="nav__cta magnetic"><span>Let's talk</span></a>
+        <button class="nav__toggle" aria-label="Open menu" aria-expanded="false" aria-controls="nav-links">
+            <span></span><span></span>
+        </button>
+    </header>
 
-        <section class="case-section">
-            <h2>Project Overview</h2>
-            <p>ResearchNest is an innovative platform designed to help students and researchers efficiently manage and extract valuable insights from academic papers. The system leverages artificial intelligence to process research documents, extract key information, and generate relevant questions to enhance understanding and retention.</p>
-            
-            <div class="case-cta">
-                <a href="https://github.com/Devlinx-s/ResearchNest" target="_blank" class="btn-case">
-                    <i class="fab fa-github"></i> View on GitHub
-                </a>
-                <a href="#" class="btn-case btn-outline">
-                    <i class="fas fa-external-link-alt"></i> Live Demo
-                </a>
+    <main id="main">
+        <section class="page-hero" id="top" data-scene="page">
+            <p class="label" data-intro>(Case study)</p>
+            <h1 class="page-hero__title">
+                <span class="line"><span class="js-split">Research</span></span>
+                <span class="line line--indent"><em class="js-split">Nest.</em></span>
+            </h1>
+            <div class="page-hero__foot" data-intro>
+                <p class="page-hero__lede"><strong>AI-powered research paper management</strong> and question extraction system.</p>
+                <div class="page-hero__meta"><span class="label">June 2024</span><span class="label">Flask · Python · AI · NLP</span><span class="label">Team project</span></div>
             </div>
         </section>
+        <figure class="case-hero-img" data-reveal><img src="images/researchnest.png" alt="ResearchNest dashboard"></figure>
 
-        <section class="case-section">
-            <h2>Key Features</h2>
-            <div class="case-features">
-                <div class="feature-card">
-                    <i class="fas fa-file-upload"></i>
-                    <h3>Document Upload</h3>
-                    <p>Easily upload research papers in various formats including PDF, DOCX, and more. The system automatically processes and indexes the content for quick retrieval.</p>
+        <section class="section" data-scene="aside">
+            <div class="case-block">
+                <div class="case-block__head">
+                    <p class="label section__label">(01) — Overview</p>
+                    <h2 class="heading" data-reveal>The<br><em>idea</em></h2>
                 </div>
-                <div class="feature-card">
-                    <i class="fas fa-robot"></i>
-                    <h3>AI-Powered Analysis</h3>
-                    <p>Advanced natural language processing extracts key concepts, summaries, and generates relevant questions from the research material.</p>
-                </div>
-                <div class="feature-card">
-                    <i class="fas fa-search"></i>
-                    <h3>Smart Search</h3>
-                    <p>Powerful search functionality allows users to quickly find specific information across all uploaded documents using semantic search technology.</p>
-                </div>
-                <div class="feature-card">
-                    <i class="fas fa-question-circle"></i>
-                    <h3>Question Generation</h3>
-                    <p>Automatically generates questions based on the content to test understanding and facilitate learning.</p>
+                <div class="case-block__body">
+                    <p>ResearchNest helps students and researchers manage academic papers and pull out the insights that matter. It processes research documents, extracts key information, and generates questions that improve understanding and retention.</p>
+                    <div><a href="https://github.com/Devlinx-s/ResearchNest" class="btn btn--solid magnetic" target="_blank" rel="noopener noreferrer"><span><i class="fab fa-github"></i> View on GitHub</span></a></div>
                 </div>
             </div>
         </section>
 
-        <section class="case-section">
-            <h2>Technical Implementation</h2>
-            <p>The ResearchNest platform was built using a modern technology stack to ensure scalability, performance, and a great user experience.</p>
-            
-            <h3>Frontend</h3>
-            <ul>
-                <li>HTML5, CSS3, and JavaScript (ES6+)</li>
-                <li>Responsive design with mobile-first approach</li>
-                <li>Interactive UI components with smooth animations</li>
-            </ul>
-            
-            <h3>Backend</h3>
-            <ul>
-                <li>Python with Flask framework</li>
-                <li>SQLAlchemy for database operations</li>
-                <li>RESTful API architecture</li>
-                <li>JWT-based authentication</li>
-            </ul>
-            
-            <h3>AI/ML Components</h3>
-            <ul>
-                <li>Natural Language Processing (NLP) for text analysis</li>
-                <li>Transformer models for question generation</li>
-                <li>Text summarization algorithms</li>
-                <li>Named Entity Recognition (NER) for key information extraction</li>
-            </ul>
-        </section>
-
-        <section class="case-section">
-            <h2>Challenges & Solutions</h2>
-            
-            <div class="challenge">
-                <h3>Challenge: Accurate Text Extraction</h3>
-                <p>Extracting clean and structured text from various document formats while preserving the original formatting and structure.</p>
-                <p><strong>Solution:</strong> Implemented a multi-layered text extraction pipeline using PyPDF2 for PDFs and python-docx for Word documents, with custom post-processing to handle edge cases.</p>
-            </div>
-            
-            <div class="challenge">
-                <h3>Challenge: Efficient Question Generation</h3>
-                <p>Creating meaningful and contextually relevant questions from academic texts.</p>
-                <p><strong>Solution:</strong> Fine-tuned a transformer-based model on academic texts and implemented a rule-based system to ensure question quality and relevance.</p>
-            </div>
-            
-            <div class="challenge">
-                <h3>Challenge: Scalability</h3>
-                <p>Handling large documents and multiple concurrent users without performance degradation.</p>
-                <p><strong>Solution:</strong> Implemented asynchronous processing with Celery and Redis, along with database optimization techniques.</p>
+        <section class="section" data-scene="aside">
+            <div class="case-block">
+                <div class="case-block__head">
+                    <p class="label section__label">(02) — Features</p>
+                    <h2 class="heading" data-reveal>What it<br><em>does</em></h2>
+                </div>
+                <div class="case-block__body">
+                    <div class="case-grid">
+                        <div class="skill" data-reveal><i class="fas fa-file-arrow-up" aria-hidden="true"></i><h3>Document Upload</h3><p>Upload research papers in PDF, DOCX and more. Content is automatically processed and indexed for quick retrieval.</p></div>
+                        <div class="skill" data-reveal><i class="fas fa-robot" aria-hidden="true"></i><h3>AI-Powered Analysis</h3><p>Natural language processing extracts key concepts, summaries and relevant questions from the research material.</p></div>
+                        <div class="skill" data-reveal><i class="fas fa-magnifying-glass" aria-hidden="true"></i><h3>Smart Search</h3><p>Semantic search finds specific information across every uploaded document.</p></div>
+                        <div class="skill" data-reveal><i class="fas fa-circle-question" aria-hidden="true"></i><h3>Question Generation</h3><p>Automatically generates questions from the content to test understanding and support learning.</p></div>
+                    </div>
+                </div>
             </div>
         </section>
 
-        <section class="case-section">
-            <h2>Results & Impact</h2>
-            <p>ResearchNest has significantly improved the research workflow for students and academics:</p>
-            
-            <div class="results">
-                <div class="result-metric">
-                    <div class="metric-value">80%</div>
-                    <div class="metric-label">Reduction in research time</div>
+        <section class="section" data-scene="aside">
+            <div class="case-block">
+                <div class="case-block__head">
+                    <p class="label section__label">(03) — Build</p>
+                    <h2 class="heading" data-reveal>How it's<br><em>made</em></h2>
                 </div>
-                <div class="result-metric">
-                    <div class="metric-value">95%</div>
-                    <div class="metric-label">Accuracy in question generation</div>
-                </div>
-                <div class="result-metric">
-                    <div class="metric-value">4.8/5</div>
-                    <div class="metric-label">User satisfaction rating</div>
+                <div class="case-block__body">
+                    <p>A modern stack chosen for scalability, performance and a good user experience.</p>
+                    <h3>Frontend</h3>
+                    <ul class="job__list"><li>HTML5, CSS3 and JavaScript (ES6+)</li><li>Responsive, mobile-first design</li><li>Interactive UI components with smooth animations</li></ul>
+                    <h3>Backend</h3>
+                    <ul class="job__list"><li>Python with Flask</li><li>SQLAlchemy for database operations</li><li>RESTful API architecture</li><li>JWT-based authentication</li></ul>
+                    <h3>AI / ML</h3>
+                    <ul class="job__list"><li>Natural Language Processing for text analysis</li><li>Transformer models for question generation</li><li>Text summarisation</li><li>Named Entity Recognition for key information extraction</li></ul>
                 </div>
             </div>
-            
-            <p>Users reported better organization of their research materials and improved understanding of complex academic papers through the generated questions and summaries.</p>
         </section>
 
-        <section class="case-cta">
-            <h2>Ready to explore ResearchNest?</h2>
-            <p>Check out the project on GitHub or try the live demo to experience the power of AI in academic research.</p>
-            <a href="https://github.com/Devlinx-s/ResearchNest" target="_blank" class="btn-case">
-                <i class="fab fa-github"></i> View on GitHub
-            </a>
-            <a href="#" class="btn-case btn-outline">
-                <i class="fas fa-external-link-alt"></i> Live Demo
-            </a>
+        <section class="section" data-scene="aside">
+            <div class="case-block">
+                <div class="case-block__head">
+                    <p class="label section__label">(04) — Challenges</p>
+                    <h2 class="heading" data-reveal>Hard<br><em>parts</em></h2>
+                </div>
+                <div class="case-block__body">
+                    <div class="challenge" data-reveal><h4>Accurate Text Extraction</h4><p>Extracting clean, structured text from various document formats while preserving the original formatting and structure.</p><p><strong>Solution:</strong> A multi-layered extraction pipeline using PyPDF2 for PDFs and python-docx for Word documents, with custom post-processing for edge cases.</p></div>
+                    <div class="challenge" data-reveal><h4>Efficient Question Generation</h4><p>Creating meaningful, contextually relevant questions from academic texts.</p><p><strong>Solution:</strong> Fine-tuned a transformer-based model on academic texts, plus a rule-based layer to keep question quality and relevance high.</p></div>
+                    <div class="challenge" data-reveal><h4>Scalability</h4><p>Handling large documents and many concurrent users without performance degradation.</p><p><strong>Solution:</strong> Asynchronous processing with Celery and Redis, along with database optimisation.</p></div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section" data-scene="aside">
+            <div class="case-block">
+                <div class="case-block__head">
+                    <p class="label section__label">(05) — Results</p>
+                    <h2 class="heading" data-reveal>The<br><em>impact</em></h2>
+                </div>
+                <div class="case-block__body">
+                    <p>Users reported better organisation of their research materials and a stronger grasp of complex papers through the generated questions and summaries.</p>
+                    <div class="about__grid" style="margin-top:0">
+                        <div class="stat" data-reveal><span class="stat__num"><span class="js-countup" data-to="80">0</span>%</span><span class="stat__label">Reduction in research time</span></div>
+                        <div class="stat" data-reveal><span class="stat__num"><span class="js-countup" data-to="95">0</span>%</span><span class="stat__label">Accuracy in question generation</span></div>
+                        <div class="stat" data-reveal><span class="stat__num">4.8/5</span><span class="stat__label">User satisfaction rating</span></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA -->
+        <section class="section cta-band" data-scene="contact">
+            <p class="label section__label">Next step</p>
+            <h2 class="contact__title"><span class="line"><span class="js-split-scroll">Let's build</span></span><span class="line"><em class="js-split-scroll">something.</em></span></h2>
+            <a href="contact.html" class="btn btn--solid magnetic" data-reveal><span>Start a project →</span></a>
         </section>
     </main>
 
     <footer class="footer">
-        <div class="footer-content">
-            <p>&copy; 2025 Derek Muriuki. All rights reserved.</p>
-            <div class="social-links">
-                <a href="https://github.com/dee-mee" target="_blank" rel="noopener noreferrer" title="GitHub">
-                    <i class="fab fa-github"></i>
-                </a>
-                <a href="https://www.linkedin.com/in/derek-muriuki/" target="_blank" rel="noopener noreferrer" title="LinkedIn">
-                    <i class="fab fa-linkedin-in"></i>
-                </a>
-                <a href="https://x.com/Deemeeb1" target="_blank" rel="noopener noreferrer" title="Twitter">
-                    <i class="fab fa-twitter"></i>
-                </a>
-                <a href="mailto:your.email@example.com" title="Email">
-                    <i class="fas fa-envelope"></i>
-                </a>
-            </div>
+        <p>© <span class="js-year">2026</span> Derek Muriuki</p>
+        <div class="footer__links">
+            <a href="https://github.com/dee-mee" target="_blank" rel="noopener noreferrer">GitHub</a>
+            <a href="https://www.linkedin.com/in/derek-muriuki/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+            <a href="https://x.com/Deemeeb1" target="_blank" rel="noopener noreferrer">X</a>
         </div>
+        <a href="#top" class="footer__top">Back to top ↑</a>
     </footer>
 
-    <script src="js/main.js"></script>
-    <script>
-        // Initialize theme switcher
-        document.addEventListener('DOMContentLoaded', function() {
-            // Hide loading overlay when page is fully loaded
-            window.addEventListener('load', function() {
-                document.querySelector('.loading-overlay').classList.add('hidden');
-            });
-
-            // Theme switcher functionality
-            document.querySelectorAll('.theme-btn').forEach(btn => {
-                btn.addEventListener('click', () => {
-                    document.body.className = '';
-                    if (btn.dataset.theme !== 'default') {
-                        document.body.classList.add(`theme-${btn.dataset.theme}`);
-                    }
-                    localStorage.setItem('theme', btn.dataset.theme);
-                });
-            });
-
-            // Apply saved theme
-            const savedTheme = localStorage.getItem('theme') || 'default';
-            if (savedTheme !== 'default') {
-                document.body.classList.add(`theme-${savedTheme}`);
-            }
-        });
-    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js"></script>
+    <script type="module" src="assets/js/main.js"></script>
 </body>
 </html>

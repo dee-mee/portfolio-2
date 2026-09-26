@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About — Derek Muriuki</title>
+    <meta name="description" content="About Derek Muriuki — experience, skills and education of a Full Stack Developer & DevOps Engineer in Nairobi.">
+    <meta name="theme-color" content="#07080a">
+    <script>try{if(sessionStorage.getItem('dm-visited'))document.documentElement.classList.add('is-return')}catch(e){}</script>
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%2307080a'/%3E%3Ctext x='50%25' y='56%25' font-family='Arial' font-weight='700' font-size='30' fill='%23f2f1ec' text-anchor='middle' dominant-baseline='middle'%3EDM%3C/text%3E%3Ccircle cx='52' cy='44' r='4' fill='%237df9ff'/%3E%3C/svg%3E">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter+Tight:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <script type="importmap">
+    {
+        "imports": {
+            "three": "https://cdn.jsdelivr.net/npm/three@0.169.0/build/three.module.js",
+            "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.169.0/examples/jsm/"
+        }
+    }
+    </script>
+</head>
+<body class="is-loading">
+    <a href="#main" class="skip-link">Skip to main content</a>
+
+    <!-- First visit in a session: counting loader. After that: curtain wipe between pages. -->
+    <div class="loader" aria-hidden="true">
+        <div class="loader__inner">
+            <span class="loader__name">Derek Muriuki</span>
+            <span class="loader__count"><span class="js-count">0</span>%</span>
+        </div>
+        <div class="loader__bar"><span></span></div>
+    </div>
+    <div class="curtain" aria-hidden="true"><span>DM<i>.</i></span></div>
+
+    <!-- 3D scene sits behind everything -->
+    <canvas class="webgl" aria-hidden="true"></canvas>
+    <div class="grain" aria-hidden="true"></div>
+
+    <div class="cursor" aria-hidden="true"><span class="cursor__dot"></span><span class="cursor__ring"><span class="cursor__label"></span></span></div>
+
+    <header class="nav">
+        <a href="index.html" class="nav__logo" aria-label="Derek Muriuki — home">DM<span>.</span></a>
+        <nav class="nav__links" id="nav-links" aria-label="Main navigation">
+            <a href="about.html" aria-current="page">About</a>
+            <a href="work.html">Work</a>
+            <a href="blog.html">Blog</a>
+            <a href="contact.html">Contact</a>
+        </nav>
+        <a href="contact.html" class="nav__cta magnetic"><span>Let's talk</span></a>
+        <button class="nav__toggle" aria-label="Open menu" aria-expanded="false" aria-controls="nav-links">
+            <span></span><span></span>
+        </button>
+    </header>
+
+    <main id="main">
+        <section class="page-hero" id="top" data-scene="page">
+            <p class="label" data-intro>(About)</p>
+            <h1 class="page-hero__title">
+                <span class="line"><span class="js-split">Builder,</span></span>
+                <span class="line line--indent"><em class="js-split">operator.</em></span>
+            </h1>
+            <div class="page-hero__foot" data-intro>
+                <p class="page-hero__lede"><strong>Full Stack Developer &amp; DevOps Engineer</strong> at ADRES Group, founder of Devlynx, and an independent developer based in Nairobi.</p>
+                <div class="page-hero__meta"><span class="label">Nairobi, KE</span><span class="label">BSc ICT · 2025</span></div>
+            </div>
+        </section>
+
+        <section class="section about" data-scene="about">
+            <p class="label section__label">(01) — In short</p>
+            <div class="about__layout">
+                <p class="about__statement js-words">
+                    I pair WordPress and Oxygen Builder craft with real infrastructure skills — the person who can build a platform from scratch and keep it running when it matters.
+                </p>
+                <figure class="portrait" data-reveal>
+                    <div class="portrait__frame">
+                        <img src="images/Derek.jpeg" alt="Portrait of Derek Muriuki" width="1024" height="949">
+                    </div>
+                    <figcaption class="portrait__caption"><span class="label">Derek Muriuki</span><span class="label">Nairobi, KE</span></figcaption>
+                </figure>
+            </div>
+            <div class="about__grid">
+                <div class="stat" data-reveal>
+                    <span class="stat__num"><span class="js-countup" data-to="9">0</span></span>
+                    <span class="stat__label">Client platforms built, migrated or maintained</span>
+                </div>
+                <div class="stat" data-reveal>
+                    <span class="stat__num"><span class="js-countup" data-to="6">0</span></span>
+                    <span class="stat__label">Personal products built end to end</span>
+                </div>
+                <div class="stat" data-reveal>
+                    <span class="stat__num">2:1</span>
+                    <span class="stat__label">BSc ICT, Second Upper Class Honours — JOOUST, 2025</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- EXPERIENCE -->
+        <section class="section experience" id="experience" data-scene="experience">
+            <div class="experience__head">
+                <p class="label section__label">(02) — Experience</p>
+                <h2 class="heading" data-reveal>Where I've been<br><em>shipping</em></h2>
+            </div>
+            <div class="experience__list">
+                <article class="job" data-reveal>
+                    <header class="job__head">
+                        <h3>ADRES Group</h3>
+                        <p class="label">Full Stack Developer &amp; DevOps Engineer</p>
+                    </header>
+                    <ul class="job__list">
+                        <li>Lead Developer &amp; Project Manager for <strong>IE Hub</strong> (Inclusive Education Hub for Africa) — a continental eLearning and Community of Practice platform for LM International, including pivoting the stack from Django/React/PostgreSQL/Redis to WordPress/Oxygen Builder/BuddyBoss</li>
+                        <li>Replaced the former ADRES contact as primary client-facing lead for IE Hub, running client discovery meetings directly</li>
+                        <li>Led the <strong>COMESA Competition Commission</strong> site migration from Divi to Oxygen Builder — staging-to-production cutover, database search-replace, plugin configuration, and structured migration of legacy case data into WordPress/ACF</li>
+                        <li>Managed and secured shared cPanel infrastructure — resolved server-wide 503 outages, remediated security incidents, and completed full domain/server migrations</li>
+                        <li>Performance and reliability work on <strong>lvbcom.org</strong> (LVBC) — LiteSpeed Cache, WebP conversion, WP-Cron replacement, and SEO optimization</li>
+                        <li>Built out PRBP (IGAD) site — cookie consent, Events Calendar, Fluent Forms/FluentCRM, Oxygen templating</li>
+                        <li>Completed the IGAD FSI domain migration (igadfsi.com → fsi.igad.int) with DNS coordination across external nameservers</li>
+                    </ul>
+                    <p class="job__clients"><span class="label">Clients</span> COMESA Competition Commission · lvbcom.org · ACTESA · LVBC</p>
+                </article>
+                <article class="job" data-reveal>
+                    <header class="job__head">
+                        <h3>Freelancing</h3>
+                        <p class="label">Founder / Independent Developer</p>
+                    </header>
+                    <ul class="job__list">
+                        <li>Web development, SEO, design, and Linux administration for independent clients</li>
+                        <li>Completed the Ẹlẹ́wà Art site migration (cPanel → WordPress.com, domain transfer from Squarespace, Google Workspace email DNS preservation)</li>
+                    </ul>
+                    <p class="job__clients"><span class="label">Clients</span> blessedsam.co.ke · waterleaders.co.ke</p>
+                </article>
+            </div>
+        </section>
+
+        <!-- SKILLS -->
+        <section class="section skills" id="skills" data-scene="skills">
+            <p class="label section__label">(03) — Toolkit</p>
+            <h2 class="heading" data-reveal>The <em>stack</em></h2>
+            <div class="skills__grid">
+                <div class="skill" data-reveal><h3>CMS / Frontend</h3><p>WordPress · Oxygen Builder · ACF Pro · Divi · BuddyBoss</p></div>
+                <div class="skill" data-reveal><h3>Backend</h3><p>Django · FastAPI · Flask · PHP</p></div>
+                <div class="skill" data-reveal><h3>Frontend / Mobile</h3><p>React · React Native (Expo)</p></div>
+                <div class="skill" data-reveal><h3>DevOps / Infrastructure</h3><p>Linux Administration · cPanel / Plesk · DNS Management · LiteSpeed Cache · Server Cron · Security Remediation</p></div>
+                <div class="skill" data-reveal><h3>Databases</h3><p>MySQL · PostgreSQL · phpMyAdmin</p></div>
+                <div class="skill" data-reveal><h3>Other</h3><p>SEO · WP Rocket · Fluent Forms · FluentCRM · Bash Scripting</p></div>
+            </div>
+        </section>
+
+        <section class="section" data-scene="skills">
+            <p class="label section__label">(04) — Education</p>
+            <div class="edu" data-reveal>
+                <div>
+                    <span class="label">2025</span>
+                    <h3>BSc Information Communication Technology</h3>
+                    <p>Jaramogi Oginga Odinga University of Science and Technology</p>
+                </div>
+                <div><span class="edu__grade">2:1</span><p class="label">Second Upper Class Honours</p></div>
+            </div>
+        </section>
+
+        <!-- CTA -->
+        <section class="section cta-band" data-scene="contact">
+            <p class="label section__label">Next step</p>
+            <h2 class="contact__title"><span class="line"><span class="js-split-scroll">Let's build</span></span><span class="line"><em class="js-split-scroll">something.</em></span></h2>
+            <a href="contact.html" class="btn btn--solid magnetic" data-reveal><span>Start a project →</span></a>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <p>© <span class="js-year">2026</span> Derek Muriuki</p>
+        <div class="footer__links">
+            <a href="https://github.com/dee-mee" target="_blank" rel="noopener noreferrer">GitHub</a>
+            <a href="https://www.linkedin.com/in/derek-muriuki/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+            <a href="https://x.com/Deemeeb1" target="_blank" rel="noopener noreferrer">X</a>
+        </div>
+        <a href="#top" class="footer__top">Back to top ↑</a>
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js"></script>
+    <script type="module" src="assets/js/main.js"></script>
+</body>
+</html>

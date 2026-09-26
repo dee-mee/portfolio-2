@@ -3,326 +3,139 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Blog - Derek Muriuki</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="css/blog.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <title>Blog — Derek Muriuki</title>
+    <meta name="description" content="Articles and case studies by Derek Muriuki on web development, Python and design.">
+    <meta name="theme-color" content="#07080a">
+    <script>try{if(sessionStorage.getItem('dm-visited'))document.documentElement.classList.add('is-return')}catch(e){}</script>
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%2307080a'/%3E%3Ctext x='50%25' y='56%25' font-family='Arial' font-weight='700' font-size='30' fill='%23f2f1ec' text-anchor='middle' dominant-baseline='middle'%3EDM%3C/text%3E%3Ccircle cx='52' cy='44' r='4' fill='%237df9ff'/%3E%3C/svg%3E">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter+Tight:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <script type="importmap">
+    {
+        "imports": {
+            "three": "https://cdn.jsdelivr.net/npm/three@0.169.0/build/three.module.js",
+            "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.169.0/examples/jsm/"
+        }
+    }
+    </script>
 </head>
-<body>
-    <!-- Loading Overlay -->
-    <div class="loading-overlay">
-        <div class="loading-spinner"></div>
-    </div>
-    
-    <!-- Particle Background -->
-    <canvas id="particles"></canvas>
+<body class="is-loading">
+    <a href="#main" class="skip-link">Skip to main content</a>
 
-    <!-- Skip to main content link for keyboard users -->
-    <a href="#main-content" class="skip-link">Skip to main content</a>
-    
-    <!-- Top Navigation Bar -->
-    <div class="top-nav">
-        <div class="theme-switcher" role="group" aria-label="Theme switcher">
-            <button class="theme-btn blue" data-theme="default" aria-label="Default theme">
-                <span class="sr-only">Default</span>
-            </button>
-            <button class="theme-btn purple" data-theme="purple" aria-label="Purple theme">
-                <span class="sr-only">Purple</span>
-            </button>
-            <button class="theme-btn green" data-theme="green" aria-label="Green theme">
-                <span class="sr-only">Green</span>
-            </button>
-            <button class="theme-btn orange" data-theme="orange" aria-label="Orange theme">
-                <span class="sr-only">Orange</span>
-            </button>
+    <!-- First visit in a session: counting loader. After that: curtain wipe between pages. -->
+    <div class="loader" aria-hidden="true">
+        <div class="loader__inner">
+            <span class="loader__name">Derek Muriuki</span>
+            <span class="loader__count"><span class="js-count">0</span>%</span>
         </div>
-        <div class="social-links">
-            <a href="https://github.com/dee-mee" target="_blank" rel="noopener noreferrer" aria-label="GitHub (opens in new tab)">
-                <i class="fab fa-github"></i>
-            </a>
-            <a href="https://www.facebook.com/garfield.llama" target="_blank" rel="noopener noreferrer" aria-label="Facebook (opens in new tab)">
-                <i class="fab fa-facebook"></i>
-            </a>
-            <a href="https://x.com/Deemeeb1" target="_blank" rel="noopener noreferrer" aria-label="Twitter (opens in new tab)">
-                <i class="fab fa-twitter"></i>
-            </a>
-        </div>
+        <div class="loader__bar"><span></span></div>
     </div>
-    
-    <nav class="nav" role="navigation" aria-label="Main navigation">
-        <div class="nav-content">
-            <a href="index.html" class="logo" aria-label="Home">Derek</a>
-            <button class="mobile-menu-btn" aria-expanded="false" aria-controls="main-nav" aria-label="Toggle navigation menu">
-                <span class="menu-icon"></span>
-                <span class="sr-only">Menu</span>
-            </button>
-            <div class="nav-links" id="main-nav">
-                <a href="index.html#home">Home</a>
-                <a href="index.html#about">About</a>
-                <a href="index.html#projects">Projects</a>
-                <a href="blog.html" aria-current="page">Blog</a>
-                <a href="index.html#contact">Contact</a>
+    <div class="curtain" aria-hidden="true"><span>DM<i>.</i></span></div>
+
+    <!-- 3D scene sits behind everything -->
+    <canvas class="webgl" aria-hidden="true"></canvas>
+    <div class="grain" aria-hidden="true"></div>
+
+    <div class="cursor" aria-hidden="true"><span class="cursor__dot"></span><span class="cursor__ring"><span class="cursor__label"></span></span></div>
+
+    <header class="nav">
+        <a href="index.html" class="nav__logo" aria-label="Derek Muriuki — home">DM<span>.</span></a>
+        <nav class="nav__links" id="nav-links" aria-label="Main navigation">
+            <a href="about.html">About</a>
+            <a href="work.html">Work</a>
+            <a href="blog.html" aria-current="page">Blog</a>
+            <a href="contact.html">Contact</a>
+        </nav>
+        <a href="contact.html" class="nav__cta magnetic"><span>Let's talk</span></a>
+        <button class="nav__toggle" aria-label="Open menu" aria-expanded="false" aria-controls="nav-links">
+            <span></span><span></span>
+        </button>
+    </header>
+
+    <main id="main">
+        <section class="page-hero" id="top" data-scene="page">
+            <p class="label" data-intro>(Writing)</p>
+            <h1 class="page-hero__title">
+                <span class="line"><span class="js-split">Notes &amp;</span></span>
+                <span class="line line--indent"><em class="js-split">thoughts.</em></span>
+            </h1>
+            <div class="page-hero__foot" data-intro>
+                <p class="page-hero__lede">Tutorials, case studies and lessons from building and running things on the web.</p>
+                
             </div>
-            <div class="overlay" aria-hidden="true"></div>
-        </div>
-    </nav>
+        </section>
 
-    <main id="main-content" tabindex="-1" class="blog-page">
-        <section class="section" aria-labelledby="blog-heading">
-            <div class="back-to-home">
-                <a href="index.html" class="back-button" aria-label="Back to home">
-                    <i class="fas fa-arrow-left"></i> Back to Home
+        <section class="section blog" data-scene="skills">
+            <div class="filters" role="group" aria-label="Filter articles">
+                <button class="chip" data-filter="all" aria-pressed="true">All</button>
+                <button class="chip" data-filter="web-dev" aria-pressed="false">Web Development</button>
+                <button class="chip" data-filter="python" aria-pressed="false">Python</button>
+                <button class="chip" data-filter="ui-ux" aria-pressed="false">UI/UX</button>
+            </div>
+            <div class="blog__list">
+                <a class="post post--media" href="resr.html" data-cursor="Read" data-category="web-dev" data-reveal>
+                    <div class="post__img"><img src="images/researchnest.png" alt="" loading="lazy"></div>
+                    <div class="post__body">
+                        <span class="label">AI &amp; Web Development · June 10, 2025</span>
+                        <h3>Building ResearchNest: An AI-Powered Research Paper Management System</h3>
+                        <p>How ResearchNest helps students and researchers organise, analyse and extract insights from academic papers using AI and NLP.</p>
+                        <div class="post__foot"><span class="label">12 min read</span><span class="label">Read case study →</span></div>
+                    </div>
                 </a>
-            </div>
-            <h1 id="blog-heading" class="section-title">My Blog</h1>
-            <p class="section-subtitle">Thoughts, tutorials, and insights about web development and design</p>
-            
-            <div class="blog-filters">
-                <button class="filter-btn active" data-category="all">All Articles</button>
-                <button class="filter-btn" data-category="web-dev">Web Development</button>
-                <button class="filter-btn" data-category="python">Python</button>
-                <button class="filter-btn" data-category="ui-ux">UI/UX</button>
-            </div>
-
-            <div class="blog-grid">
-                <!-- ResearchNest Blog Post -->
-                <article class="blog-card" data-category="web-dev">
-                    <div class="blog-image">
-                        <img src="images/researchnest.png" alt="ResearchNest AI Platform">
-                    </div>
-                    <div class="blog-content">
-                        <div class="blog-meta">
-                            <span class="blog-category">AI & Web Development</span>
-                            <span class="blog-date">June 10, 2025</span>
-                        </div>
-                        <h2><a href="resr.html" class="blog-title">Building ResearchNest: An AI-Powered Research Paper Management System</a></h2>
-                        <p>Discover how we built ResearchNest, a platform that helps students and researchers organize, analyze, and extract insights from academic papers using AI and natural language processing.</p>
-                        <div class="blog-footer">
-                            <a href="resr.html" class="read-more">Read Case Study <i class="fas fa-arrow-right"></i></a>
-                            <span class="read-time">12 min read</span>
-                        </div>
+                <article class="post post--media post--soon" data-category="web-dev" data-reveal>
+                    <div class="post__img"><img src="images/flask.jpeg" alt="" loading="lazy"></div>
+                    <div class="post__body">
+                        <span class="label">Web Development · June 5, 2025</span>
+                        <h3>Building Modern Web Applications with Flask</h3>
+                        <p>Creating scalable web applications with Python and Flask — from setup to deployment.</p>
+                        <div class="post__foot"><span class="label">8 min read</span><span class="label">Coming soon</span></div>
                     </div>
                 </article>
-
-                <!-- Blog Post 1 -->
-                <article class="blog-card" data-category="web-dev">
-                    <div class="blog-image">
-                        <img src="images/flask.jpeg" alt="Flask Web Development">
-                    </div>
-                    <div class="blog-content">
-                        <div class="blog-meta">
-                            <span class="blog-category">Web Development</span>
-                            <span class="blog-date">June 5, 2025</span>
-                        </div>
-                        <h2><a href="blog-post.html" class="blog-title">Building Modern Web Applications with Flask</a></h2>
-                        <p>Learn how to create scalable web applications using Python and Flask framework with best practices and modern tooling. This guide covers everything from setup to deployment.</p>
-                        <div class="blog-footer">
-                            <a href="blog-post.html" class="read-more">Read More <i class="fas fa-arrow-right"></i></a>
-                            <span class="read-time">8 min read</span>
-                        </div>
+                <article class="post post--media post--soon" data-category="python" data-reveal>
+                    <div class="post__img"><img src="images/python.jpeg" alt="" loading="lazy"></div>
+                    <div class="post__body">
+                        <span class="label">Python · May 28, 2025</span>
+                        <h3>Python Tips for Clean and Efficient Code</h3>
+                        <p>Essential tips for cleaner, more efficient, more Pythonic code — comprehensions, decorators and more.</p>
+                        <div class="post__foot"><span class="label">6 min read</span><span class="label">Coming soon</span></div>
                     </div>
                 </article>
-
-                <!-- Blog Post 2 -->
-                <article class="blog-card" data-category="python">
-                    <div class="blog-image">
-                        <img src="images/python.jpeg" alt="Python Tips">
-                    </div>
-                    <div class="blog-content">
-                        <div class="blog-meta">
-                            <span class="blog-category">Python</span>
-                            <span class="blog-date">May 28, 2025</span>
-                        </div>
-                        <h2><a href="#" class="blog-title">Python Tips for Clean and Efficient Code</a></h2>
-                        <p>Discover essential Python tips and tricks to write cleaner, more efficient, and more Pythonic code in your projects. Learn about list comprehensions, decorators, and more.</p>
-                        <div class="blog-footer">
-                            <a href="#" class="read-more">Read More <i class="fas fa-arrow-right"></i></a>
-                            <span class="read-time">6 min read</span>
-                        </div>
-                    </div>
-                </article>
-
-                <!-- Blog Post 3 -->
-                <article class="blog-card" data-category="ui-ux">
-                    <div class="blog-image">
-                        <img src="images/uiux.jpeg" alt="UI/UX Design">
-                    </div>
-                    <div class="blog-content">
-                        <div class="blog-meta">
-                            <span class="blog-category">UI/UX</span>
-                            <span class="blog-date">May 15, 2025</span>
-                        </div>
-                        <h2><a href="#" class="blog-title">Principles of Modern Web Design</a></h2>
-                        <p>Explore the fundamental principles that make for effective and engaging web design in today's digital landscape. Learn about typography, color theory, and user experience best practices.</p>
-                        <div class="blog-footer">
-                            <a href="#" class="read-more">Read More <i class="fas fa-arrow-right"></i></a>
-                            <span class="read-time">10 min read</span>
-                        </div>
+                <article class="post post--media post--soon" data-category="ui-ux" data-reveal>
+                    <div class="post__img"><img src="images/uiux.jpeg" alt="" loading="lazy"></div>
+                    <div class="post__body">
+                        <span class="label">UI/UX · May 15, 2025</span>
+                        <h3>Principles of Modern Web Design</h3>
+                        <p>The fundamentals behind effective, engaging web design — typography, colour and user experience.</p>
+                        <div class="post__foot"><span class="label">10 min read</span><span class="label">Coming soon</span></div>
                     </div>
                 </article>
             </div>
+        </section>
 
-            <div class="pagination">
-                <a href="#" class="page-btn active">1</a>
-                <a href="#" class="page-btn">2</a>
-                <a href="#" class="page-btn">3</a>
-                <a href="#" class="page-btn next">Next <i class="fas fa-chevron-right"></i></a>
-            </div>
+        <!-- CTA -->
+        <section class="section cta-band" data-scene="contact">
+            <p class="label section__label">Next step</p>
+            <h2 class="contact__title"><span class="line"><span class="js-split-scroll">Let's build</span></span><span class="line"><em class="js-split-scroll">something.</em></span></h2>
+            <a href="contact.html" class="btn btn--solid magnetic" data-reveal><span>Start a project →</span></a>
         </section>
     </main>
 
     <footer class="footer">
-        <div class="footer-content">
-            <p>&copy; 2025 Derek Muriuki. All rights reserved.</p>
-            <div class="social-links">
-                <a href="https://github.com/dee-mee" target="_blank" rel="noopener noreferrer" title="GitHub">
-                    <i class="fab fa-github"></i>
-                </a>
-                <a href="https://x.com/Deemeeb1" target="_blank" rel="noopener noreferrer" title="Twitter">
-                    <i class="fab fa-twitter"></i>
-                </a>
-                <a href="https://www.linkedin.com/in/derek-muriuki/" target="_blank" rel="noopener noreferrer" title="LinkedIn">
-                    <i class="fab fa-linkedin-in"></i>
-                </a>
-                <a href="mailto:your.email@example.com" title="Email">
-                    <i class="fas fa-envelope"></i>
-                </a>
-            </div>
+        <p>© <span class="js-year">2026</span> Derek Muriuki</p>
+        <div class="footer__links">
+            <a href="https://github.com/dee-mee" target="_blank" rel="noopener noreferrer">GitHub</a>
+            <a href="https://www.linkedin.com/in/derek-muriuki/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+            <a href="https://x.com/Deemeeb1" target="_blank" rel="noopener noreferrer">X</a>
         </div>
+        <a href="#top" class="footer__top">Back to top ↑</a>
     </footer>
 
-    <script>
-        // Hide loading overlay when page is fully loaded
-        window.addEventListener('load', function() {
-            const loadingOverlay = document.querySelector('.loading-overlay');
-            if (loadingOverlay) {
-                loadingOverlay.classList.add('hidden');
-                // Remove from DOM after animation completes
-                setTimeout(() => {
-                    loadingOverlay.style.display = 'none';
-                }, 500);
-            }
-        });
-
-        // Fallback in case load event doesn't fire
-        setTimeout(() => {
-            const loadingOverlay = document.querySelector('.loading-overlay');
-            if (loadingOverlay && loadingOverlay.style.display !== 'none') {
-                loadingOverlay.classList.add('hidden');
-                setTimeout(() => {
-                    loadingOverlay.style.display = 'none';
-                }, 500);
-            }
-        }, 3000); // 3 second timeout
-
-        document.addEventListener('DOMContentLoaded', function() {
-            // Theme Switcher
-            document.querySelectorAll('.theme-btn').forEach(btn => {
-                btn.addEventListener('click', () => {
-                    document.body.className = '';
-                    if (btn.dataset.theme !== 'default') {
-                        document.body.classList.add(`theme-${btn.dataset.theme}`);
-                    }
-                    localStorage.setItem('theme', btn.dataset.theme);
-                });
-            });
-
-            // Set initial theme
-            const savedTheme = localStorage.getItem('theme') || 'default';
-            if (savedTheme !== 'default') {
-                document.body.classList.add(`theme-${savedTheme}`);
-            }
-
-            // Particle Background
-            const canvas = document.getElementById('particles');
-            const ctx = canvas.getContext('2d');
-            
-            canvas.width = window.innerWidth;
-            canvas.height = document.body.scrollHeight;
-
-            const particles = [];
-            
-            class Particle {
-                constructor() {
-                    this.x = Math.random() * canvas.width;
-                    this.y = Math.random() * canvas.height;
-                    this.size = Math.random() * 2;
-                    this.speedX = Math.random() * 3 - 1.5;
-                    this.speedY = Math.random() * 3 - 1.5;
-                }
-
-
-                update() {
-                    this.x += this.speedX;
-                    this.y += this.speedY;
-
-                    if (this.x > canvas.width) this.x = 0;
-                    if (this.x < 0) this.x = canvas.width;
-                    if (this.y > canvas.height) this.y = 0;
-                    if (this.y < 0) this.y = canvas.height;
-                }
-
-
-                draw() {
-                    ctx.fillStyle = getComputedStyle(document.body).getPropertyValue('--neon-blue');
-                    ctx.beginPath();
-                    ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
-                    ctx.fill();
-                }
-            }
-
-
-            function initParticles() {
-                for (let i = 0; i < 100; i++) {
-                    particles.push(new Particle());
-                }
-            }
-
-
-            function animateParticles() {
-                ctx.clearRect(0, 0, canvas.width, canvas.height);
-                
-                particles.forEach(particle => {
-                    particle.update();
-                    particle.draw();
-                });
-                
-                requestAnimationFrame(animateParticles);
-            }
-
-
-            initParticles();
-            animateParticles();
-
-            // Resize handler
-            window.addEventListener('resize', () => {
-                canvas.width = window.innerWidth;
-                canvas.height = document.body.scrollHeight;
-            });
-
-            // Blog filter functionality
-            const filterButtons = document.querySelectorAll('.filter-btn');
-            const blogCards = document.querySelectorAll('.blog-card');
-
-            filterButtons.forEach(button => {
-                button.addEventListener('click', () => {
-                    // Remove active class from all buttons
-                    filterButtons.forEach(btn => btn.classList.remove('active'));
-                    // Add active class to clicked button
-                    button.classList.add('active');
-                    
-                    const category = button.getAttribute('data-category');
-                    
-                    blogCards.forEach(card => {
-                        if (category === 'all' || card.getAttribute('data-category') === category) {
-                            card.style.display = 'flex';
-                        } else {
-                            card.style.display = 'none';
-                        }
-                    });
-                });
-            });
-        });
-    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js"></script>
+    <script type="module" src="assets/js/main.js"></script>
 </body>
 </html>
