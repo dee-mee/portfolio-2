@@ -381,14 +381,7 @@ a.prow:hover .prow__arrow { transform: rotate(45deg); color: var(--bg); }
 }
 
 @media (max-width: 899px) {
-    .nav__links {
-        position: fixed; inset: 0; z-index: -1; flex-direction: column; justify-content: center; gap: 12px;
-        padding: var(--gutter); background: rgba(7, 8, 10, .92); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
-        font-size: 44px; letter-spacing: -0.04em;
-        clip-path: inset(0 0 100% 0); transition: clip-path .8s var(--ease);
-    }
-    .nav__links a { color: var(--fg); }
-    .menu-open .nav__links { clip-path: inset(0 0 0 0); }
+    .nav__links { display: none; }
     .menu-open { overflow: hidden; }
     .nav__cta { display: none; }
     .nav__toggle {
@@ -589,3 +582,34 @@ a.prow:hover .prow__arrow { transform: rotate(45deg); color: var(--bg); }
     .step, .step + .step { padding-left: 0; border-left: 0; }
     .service { min-height: 0; }
 }
+
+/* Mobile menu: lives outside the header so the header's transform/backdrop-filter
+   can't turn it into the containing block and squash it to the bar's height. */
+.menu {
+    position: fixed; inset: 0; z-index: 99;
+    display: flex; flex-direction: column; justify-content: space-between; gap: 32px;
+    padding: 120px var(--gutter) 40px;
+    background: rgba(7, 8, 10, .96); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
+    clip-path: inset(0 0 100% 0); visibility: hidden;
+    transition: clip-path .8s var(--ease), visibility 0s .8s;
+}
+.menu-open .menu { clip-path: inset(0 0 0 0); visibility: visible; transition: clip-path .8s var(--ease), visibility 0s; }
+.menu__links { display: flex; flex-direction: column; gap: 4px; }
+.menu__links a {
+    font-size: clamp(40px, 12vw, 64px); letter-spacing: -0.045em; line-height: 1.1;
+    display: flex; align-items: baseline; gap: 16px;
+    opacity: 0; transform: translateY(24px); transition: opacity .5s, transform .7s var(--ease), color .3s;
+}
+.menu__links a::before { content: attr(data-num); font-family: var(--mono); font-size: 12px; letter-spacing: .08em; color: var(--muted); }
+.menu__links a[aria-current="page"] { color: var(--accent); }
+.menu-open .menu__links a { opacity: 1; transform: none; }
+.menu-open .menu__links a:nth-child(1) { transition-delay: .15s; }
+.menu-open .menu__links a:nth-child(2) { transition-delay: .2s; }
+.menu-open .menu__links a:nth-child(3) { transition-delay: .25s; }
+.menu-open .menu__links a:nth-child(4) { transition-delay: .3s; }
+.menu-open .menu__links a:nth-child(5) { transition-delay: .35s; }
+.menu__foot { display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap; }
+.menu__foot a { color: var(--muted); }
+@media (min-width: 900px) { .menu { display: none; } }
+/* keep the header (and the close button) above the menu, never hidden while it's open */
+.menu-open .nav { transform: none !important; background: transparent; backdrop-filter: none; -webkit-backdrop-filter: none; }

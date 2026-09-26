@@ -406,18 +406,57 @@ if (finePointer) {
 }
 
 /* ------------------------------------------------------------ mobile menu */
+// Built from the header links but mounted on <body>: inside the header it would be
+// sized to the header, because the header has a transform and a backdrop-filter.
 const toggle = $('.nav__toggle');
-function closeMenu() {
-    document.body.classList.remove('menu-open');
-    toggle.setAttribute('aria-expanded', 'false');
-    toggle.setAttribute('aria-label', 'Open menu');
-}
-toggle.addEventListener('click', () => {
-    const open = document.body.classList.toggle('menu-open');
+const menu = document.createElement('nav');
+menu.className = 'menu';
+menu.id = 'mobile-menu';
+menu.setAttribute('aria-label', 'Mobile navigation');
+const menuLinks = document.createElement('div');
+menuLinks.className = 'menu__links';
+[['index.html', 'Home'], ...$$('.nav__links a').map((a) => [a.getAttribute('href'), a.textContent])].forEach(([href, text], i) => {
+    const a = document.createElement('a');
+    a.href = href;
+    a.textContent = text;
+    a.dataset.num = String(i + 1).padStart(2, '0');
+    const here = location.pathname.split('/').pop() || 'index.html';
+    if (href === here) a.setAttribute('aria-current', 'page');
+    menuLinks.appendChild(a);
+});
+menu.appendChild(menuLinks);
+menu.insertAdjacentHTML('beforeend', `<div class="menu__foot label">
+    <a href="https://github.com/dee-mee" target="_blank" rel="noopener noreferrer">GitHub</a>
+    <a href="https://www.linkedin.com/in/derek-muriuki/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+    <a href="https://x.com/Deemeeb1" target="_blank" rel="noopener noreferrer">X</a>
+</div>`);
+menu.inert = true;
+document.body.appendChild(menu);
+toggle.setAttribute('aria-controls', 'mobile-menu');
+
+function setMenu(open) {
+    document.body.classList.toggle('menu-open', open);
+    document.body.classList.remove('nav-hidden');
     toggle.setAttribute('aria-expanded', String(open));
     toggle.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+    menu.inert = !open;
+    if (open) {
+        lenis?.stop();
+        menuLinks.firstElementChild.focus({ preventScroll: true });
+    } else {
+        lenis?.start();
+    }
+}
+function closeMenu() {
+    if (document.body.classList.contains('menu-open')) setMenu(false);
+}
+toggle.addEventListener('click', () => setMenu(!document.body.classList.contains('menu-open')));
+document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && document.body.classList.contains('menu-open')) {
+        setMenu(false);
+        toggle.focus();
+    }
 });
-document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeMenu(); });
 
 // hide nav on scroll down, show on scroll up
 let lastY = 0;
