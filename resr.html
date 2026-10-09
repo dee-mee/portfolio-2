@@ -3,10 +3,33 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ResearchNest — Case Study | Derek Muriuki</title>
-    <meta name="description" content="Case study: ResearchNest, an AI-powered research paper management and question extraction system built with Flask.">
+    <title>ResearchNest — Student Research Archive &amp; Analytics Platform | Derek Muriuki</title>
+    <meta name="description" content="ResearchNest is a student research archive and analytics platform developed by Derek Muriuki using Python and Flask.">
     <meta name="theme-color" content="#07080a">
     <link rel="canonical" href="https://dee-mee.github.io/portfolio-2/resr.html">
+    <meta property="og:type" content="article">
+    <meta property="og:site_name" content="Derek Muriuki">
+    <meta property="og:title" content="ResearchNest — Student Research Archive &amp; Analytics Platform | Derek Muriuki">
+    <meta property="og:description" content="ResearchNest is a student research archive and analytics platform developed by Derek Muriuki using Python and Flask.">
+    <meta property="og:url" content="https://dee-mee.github.io/portfolio-2/resr.html">
+    <meta property="og:image" content="https://dee-mee.github.io/portfolio-2/images/researchnest.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="ResearchNest — Student Research Archive &amp; Analytics Platform | Derek Muriuki">
+    <meta name="twitter:description" content="ResearchNest is a student research archive and analytics platform developed by Derek Muriuki using Python and Flask.">
+    <meta name="twitter:image" content="https://dee-mee.github.io/portfolio-2/images/researchnest.png">
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "SoftwareSourceCode",
+        "name": "ResearchNest",
+        "description": "Student research archive and analytics platform built with Python and Flask.",
+        "url": "https://dee-mee.github.io/portfolio-2/resr.html",
+        "codeRepository": "https://github.com/Devlinx-s/ResearchNest",
+        "programmingLanguage": ["Python", "JavaScript", "HTML", "CSS"],
+        "runtimePlatform": "Flask",
+        "author": { "@id": "https://dee-mee.github.io/portfolio-2/#person", "@type": "Person", "name": "Derek Muriuki", "url": "https://dee-mee.github.io/portfolio-2/" }
+    }
+    </script>
     <script>try{if(sessionStorage.getItem('dm-visited'))document.documentElement.classList.add('is-return')}catch(e){}</script>
     <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%2307080a'/%3E%3Ctext x='50%25' y='56%25' font-family='Arial' font-weight='700' font-size='30' fill='%23f2f1ec' text-anchor='middle' dominant-baseline='middle'%3EDM%3C/text%3E%3Ccircle cx='52' cy='44' r='4' fill='%237df9ff'/%3E%3C/svg%3E">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -64,20 +87,21 @@
                 <span class="line line--indent"><em class="js-split">Nest.</em></span>
             </h1>
             <div class="page-hero__foot" data-intro>
-                <p class="page-hero__lede"><strong>AI-powered research paper management</strong> and question extraction system.</p>
-                <div class="page-hero__meta"><span class="label">June 2024</span><span class="label">Flask · Python · AI · NLP</span><span class="label">Team project</span></div>
+                <p class="page-hero__lede"><strong>Student research archive &amp; analytics platform</strong> — developed by Derek Muriuki using Python and Flask.</p>
+                <div class="page-hero__meta"><span class="label">June 2025</span><span class="label">Python · Flask · SQLAlchemy · JavaScript</span><span class="label">Team project</span></div>
             </div>
         </section>
-        <figure class="case-hero-img" data-reveal><img src="images/researchnest.png" alt="ResearchNest dashboard"></figure>
+        <figure class="case-hero-img" data-reveal><img src="images/researchnest.png" alt="ResearchNest dashboard showing the student research archive"></figure>
 
         <section class="section" data-scene="aside">
             <div class="case-block">
                 <div class="case-block__head">
                     <p class="label section__label">(01) — Overview</p>
-                    <h2 class="heading" data-reveal>The<br><em>idea</em></h2>
+                    <h2 class="heading" data-reveal>The<br><em>problem</em></h2>
                 </div>
                 <div class="case-block__body">
-                    <p>ResearchNest helps students and researchers manage academic papers and pull out the insights that matter. It processes research documents, extracts key information, and generates questions that improve understanding and retention.</p>
+                    <p>Student research projects and past exam papers usually end up scattered across email threads, shared drives and individual laptops. Once a class graduates, the work is effectively lost — and nobody can see what has already been researched or which material students actually use.</p>
+                    <p>ResearchNest gives a department one searchable archive for that work. Students upload their papers, administrators review and approve them, and everything is organised by department and year so it can be found again. An analytics dashboard shows what is being uploaded and downloaded, and a question bank turns past exam papers into reusable, categorised questions.</p>
                     <div><a href="https://github.com/Devlinx-s/ResearchNest" class="btn btn--solid magnetic" target="_blank" rel="noopener noreferrer"><span><i class="fab fa-github"></i> View on GitHub</span></a></div>
                 </div>
             </div>
@@ -91,10 +115,12 @@
                 </div>
                 <div class="case-block__body">
                     <div class="case-grid">
-                        <div class="skill" data-reveal><i class="fas fa-file-arrow-up" aria-hidden="true"></i><h3>Document Upload</h3><p>Upload research papers in PDF, DOCX and more. Content is automatically processed and indexed for quick retrieval.</p></div>
-                        <div class="skill" data-reveal><i class="fas fa-robot" aria-hidden="true"></i><h3>AI-Powered Analysis</h3><p>Natural language processing extracts key concepts, summaries and relevant questions from the research material.</p></div>
-                        <div class="skill" data-reveal><i class="fas fa-magnifying-glass" aria-hidden="true"></i><h3>Smart Search</h3><p>Semantic search finds specific information across every uploaded document.</p></div>
-                        <div class="skill" data-reveal><i class="fas fa-circle-question" aria-hidden="true"></i><h3>Question Generation</h3><p>Automatically generates questions from the content to test understanding and support learning.</p></div>
+                        <div class="skill" data-reveal><i class="fas fa-box-archive" aria-hidden="true"></i><h3>Research Archive</h3><p>Single and bulk PDF upload with automatic metadata and keyword extraction, organised by department and year.</p></div>
+                        <div class="skill" data-reveal><i class="fas fa-user-check" aria-hidden="true"></i><h3>Review Workflow</h3><p>Admins approve or reject submissions and manage users and roles before papers go public.</p></div>
+                        <div class="skill" data-reveal><i class="fas fa-magnifying-glass" aria-hidden="true"></i><h3>Search &amp; Download</h3><p>Search the archive and download papers, with every download logged for reporting.</p></div>
+                        <div class="skill" data-reveal><i class="fas fa-chart-column" aria-hidden="true"></i><h3>Analytics Dashboard</h3><p>Charts for papers by department, uploads and downloads by month, and the most common keywords.</p></div>
+                        <div class="skill" data-reveal><i class="fas fa-circle-question" aria-hidden="true"></i><h3>Question Bank</h3><p>Extracts questions, marks and question types from past exam PDFs, with progress tracking, and files them by subject, unit and topic.</p></div>
+                        <div class="skill" data-reveal><i class="fas fa-file-pdf" aria-hidden="true"></i><h3>Paper Generation</h3><p>Builds new question papers from the bank by subject and marks, exported as branded PDFs.</p></div>
                     </div>
                 </div>
             </div>
@@ -107,13 +133,12 @@
                     <h2 class="heading" data-reveal>How it's<br><em>made</em></h2>
                 </div>
                 <div class="case-block__body">
-                    <p>A modern stack chosen for scalability, performance and a good user experience.</p>
-                    <h3>Frontend</h3>
-                    <ul class="job__list"><li>HTML5, CSS3 and JavaScript (ES6+)</li><li>Responsive, mobile-first design</li><li>Interactive UI components with smooth animations</li></ul>
                     <h3>Backend</h3>
-                    <ul class="job__list"><li>Python with Flask</li><li>SQLAlchemy for database operations</li><li>RESTful API architecture</li><li>JWT-based authentication</li></ul>
-                    <h3>AI / ML</h3>
-                    <ul class="job__list"><li>Natural Language Processing for text analysis</li><li>Transformer models for question generation</li><li>Text summarisation</li><li>Named Entity Recognition for key information extraction</li></ul>
+                    <ul class="job__list"><li>Python with Flask</li><li>SQLAlchemy models with Flask-Migrate / Alembic migrations</li><li>Flask-Login authentication and Flask-WTF forms, with role-based admin access</li><li>JSON status endpoints for tracking question-extraction progress</li></ul>
+                    <h3>Document processing</h3>
+                    <ul class="job__list"><li>PyMuPDF for PDF text and metadata extraction</li><li>NLTK and scikit-learn (TF-IDF) for keyword extraction and question matching</li><li>ReportLab for generating branded PDF question papers</li></ul>
+                    <h3>Frontend &amp; data</h3>
+                    <ul class="job__list"><li>HTML, CSS and JavaScript templates</li><li>Chart.js analytics dashboard fed by JSON endpoints</li><li>SQLite in development, PostgreSQL-ready</li></ul>
                 </div>
             </div>
         </section>
@@ -125,26 +150,8 @@
                     <h2 class="heading" data-reveal>Hard<br><em>parts</em></h2>
                 </div>
                 <div class="case-block__body">
-                    <div class="challenge" data-reveal><h4>Accurate Text Extraction</h4><p>Extracting clean, structured text from various document formats while preserving the original formatting and structure.</p><p><strong>Solution:</strong> A multi-layered extraction pipeline using PyPDF2 for PDFs and python-docx for Word documents, with custom post-processing for edge cases.</p></div>
-                    <div class="challenge" data-reveal><h4>Efficient Question Generation</h4><p>Creating meaningful, contextually relevant questions from academic texts.</p><p><strong>Solution:</strong> Fine-tuned a transformer-based model on academic texts, plus a rule-based layer to keep question quality and relevance high.</p></div>
-                    <div class="challenge" data-reveal><h4>Scalability</h4><p>Handling large documents and many concurrent users without performance degradation.</p><p><strong>Solution:</strong> Asynchronous processing with Celery and Redis, along with database optimisation.</p></div>
-                </div>
-            </div>
-        </section>
-
-        <section class="section" data-scene="aside">
-            <div class="case-block">
-                <div class="case-block__head">
-                    <p class="label section__label">(05) — Results</p>
-                    <h2 class="heading" data-reveal>The<br><em>impact</em></h2>
-                </div>
-                <div class="case-block__body">
-                    <p>Users reported better organisation of their research materials and a stronger grasp of complex papers through the generated questions and summaries.</p>
-                    <div class="about__grid" style="margin-top:0">
-                        <div class="stat" data-reveal><span class="stat__num"><span class="js-countup" data-to="80">0</span>%</span><span class="stat__label">Reduction in research time</span></div>
-                        <div class="stat" data-reveal><span class="stat__num"><span class="js-countup" data-to="95">0</span>%</span><span class="stat__label">Accuracy in question generation</span></div>
-                        <div class="stat" data-reveal><span class="stat__num">4.8/5</span><span class="stat__label">User satisfaction rating</span></div>
-                    </div>
+                    <div class="challenge" data-reveal><h4>Pulling questions out of real exam papers</h4><p>Past papers come in inconsistent layouts — numbered and lettered sub-questions, marks in brackets, tables and formulas mixed into the text.</p><p><strong>Solution:</strong> A page-by-page extractor built on PyMuPDF that tracks sections, matches question patterns, reads marks, detects question types and flags formulas, diagrams and tables.</p></div>
+                    <div class="challenge" data-reveal><h4>Long-running processing</h4><p>Extracting a large paper takes long enough that users assumed the upload had failed.</p><p><strong>Solution:</strong> Extraction reports progress page by page to a status endpoint, and a status page polls it so users can watch the job run.</p></div>
                 </div>
             </div>
         </section>
