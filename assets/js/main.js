@@ -489,7 +489,7 @@ if (form) {
             const res = await fetch('https://api.web3forms.com/submit', { method: 'POST', body: new FormData(form) });
             const data = await res.json().catch(() => ({}));
             if (!res.ok) throw new Error(data.message || 'Request failed');
-            status.textContent = "Thanks — message received. I'll get back to you soon.";
+            status.textContent = "Thanks - message received. I'll get back to you soon.";
             status.dataset.state = 'ok';
             form.reset();
         } catch (err) {
